@@ -121,8 +121,25 @@ public class HomeMain extends JPanel{
 		TimeTable.setFont(new Font("바탕체", Font.PLAIN, 20));
 		TimeTable.setBounds(12, 0, 64, 60);
 		add(TimeTable);
+		
+		
+		table.addMouseListener(new MouseAdapter(){
+			public void mouseClicked(MouseEvent e) throws NullPointerException, ArrayIndexOutOfBoundsException{
+				int row = table.getSelectedRow();
+				int col = table.getSelectedColumn();
+				String value = (String) table.getValueAt(row, col);
+				
+				if(e.getModifiers() == MouseEvent.BUTTON3_MASK){
+					SubjectOption subject_option = new SubjectOption();
+				}
+			}
+		});
+		
 	}										/*��������*/
 
+	
+	
+	
 	void paintTable(String[][] subject, Object[][] column){
 		
 		
