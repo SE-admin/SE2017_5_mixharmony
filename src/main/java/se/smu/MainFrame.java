@@ -2,6 +2,7 @@ package se.smu;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -9,9 +10,13 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class MainFrame extends JFrame{
+	
+	public static JPanel main_title;
 	
 	public static JPanel contentPane;
 	
@@ -47,30 +52,54 @@ public class MainFrame extends JFrame{
 			e.printStackTrace();
 		}
 		
+
+		//배경색 설정
 		setBackground(Color.white);
+		//어플리케이션 종료시 모든 window종료 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 700);
+		//크기와 좌표 지정(전체 크기)
+		setBounds(100, 100, 600, 820);
 		
+		
+		//메인 창 틀
+		main_title = new JPanel();
+		main_title.setBounds(0, 0, 600, 50);
+		main_title.setBackground(Color.pink);
+		add(main_title);
+		main_title.setLayout(null);
+		//메인 창 라벨
+		JLabel main_label = new JLabel("5조-PENTA");
+		main_label.setFont(new Font("고딕체", Font.PLAIN, 30));
+		main_label.setHorizontalAlignment(SwingConstants.CENTER);
+		main_label.setBounds(220, 0, 160, 50);
+		main_title.add(main_label);
+		
+		
+		
+		//메뉴 패널 생성
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.black);
+		//메뉴 패널 색
+		contentPane.setBackground(Color.pink);
 		contentPane.setBorder(null);
-		contentPane.setBounds(0, 0, 584, 81);
-		setContentPane(contentPane);
+		contentPane.setBounds(0, 700, 600, 80);
+		add(contentPane);
 		contentPane.setLayout(null);
 		MenuPanel menu = new MenuPanel();
 		contentPane.add(menu);
 		
 		main_panel = new JPanel();
-		main_panel.setBounds(0, 81, 584, 581);
-		getContentPane().add(main_panel);
+		main_panel.setBounds(0, 0, 600, 630);
+		main_panel.setBackground(Color.blue);
+		add(main_panel);
 		main_panel.setLayout(null);
 		
-		HomeMain Test2 = new HomeMain();
-		Test2.setBounds(0, 0, 584, 581);
-		main_panel.add(Test2);
+		HomeMain homemain = new HomeMain();
+		main_panel.add(homemain);
 		
 	
 	}
+	
+	//서브젝트 불러오기
 	public static String[][] getSubject() throws IOException{
 		
 		 File f = new File("subject_out.txt");
@@ -105,7 +134,8 @@ public class MainFrame extends JFrame{
 		br.close();
 		return subject;
 	}
-
+	
+	//todolist 불러오기
 	public static String[][] get_Todo() throws IOException{
 		
 		 File f = new File("Todo_out.txt");

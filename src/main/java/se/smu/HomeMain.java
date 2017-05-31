@@ -20,10 +20,10 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.table.DefaultTableModel;
 
 public class HomeMain extends JPanel{
-	//���̺�
+	
 	private JTable table;
 	Object[][] column = {
-			// ��
+			
 			{new Integer(8), "", "", "", "", ""},
 			{new Integer(9), "", "", "", "", ""},
 			{new Integer(10), "", "", "", "", ""},
@@ -41,13 +41,10 @@ public class HomeMain extends JPanel{
 			{new Integer(22), "", "", "", "", ""},
 		};
 	
-	/**
-	 * Create the panel.
-	 */
 	public HomeMain() {
 		//HomeMain 
-		setBackground(Color.blue);
-		setBounds(0, 0, 584, 581);
+		setBackground(Color.pink);
+		setBounds(0, 0, 600, 700);
 		setLayout(null);
 
 			String[] row = {
@@ -108,20 +105,20 @@ public class HomeMain extends JPanel{
 		
 		table.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		
-		table.setRowHeight(50);
+		table.setRowHeight(60);
 		
 		
-		table.setBounds(0,0, 584, 581);
+		table.setBounds(0, 0, 583, 650);
 		
 		JScrollPane jscrollpane = new JScrollPane(table);
-		jscrollpane.setBounds(0, 60, 584, 477);
+		jscrollpane.setBounds(0, 50, 583, 650);
 		add(jscrollpane);
-		
+		/*
 		JLabel TimeTable = new JLabel("시간표");
 		TimeTable.setFont(new Font("바탕체", Font.PLAIN, 20));
 		TimeTable.setBounds(12, 0, 64, 60);
 		add(TimeTable);
-		
+		*/
 		
 		table.addMouseListener(new MouseAdapter(){
 			public void mouseClicked(MouseEvent e) throws NullPointerException, ArrayIndexOutOfBoundsException{
@@ -135,7 +132,7 @@ public class HomeMain extends JPanel{
 			}
 		});
 		
-	}										/*��������*/
+	}										
 
 	
 	

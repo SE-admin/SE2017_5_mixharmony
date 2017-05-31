@@ -1,13 +1,17 @@
 package se.smu;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.AbstractDocument.Content;
 
 
 public class MenuPanel extends JPanel{
@@ -21,8 +25,8 @@ public class MenuPanel extends JPanel{
 
 		JPanel menu_panel = new JPanel();
 		menu_panel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		menu_panel.setBackground(Color.darkGray);				/**/
-		menu_panel.setBounds(0, 0, 584, 81);
+		menu_panel.setBackground(Color.pink);				/**/
+		menu_panel.setBounds(0, 0, 600, 200);
 		MainFrame.contentPane.add(menu_panel);
 		menu_panel.setLayout(null);
 		
@@ -41,9 +45,10 @@ public class MenuPanel extends JPanel{
 				
 			}
 		});
-		add_button.setIcon(new ImageIcon(MainFrame.class.getResource("/img/plus.PNG")));					/**/
-		add_button.setBackground(Color.lightGray);															/**/
-		add_button.setBounds(0, 0, 198, 81);
+		
+		add_button.setIcon(new ImageIcon(MainFrame.class.getResource("/icon/add.PNG")));					
+		add_button.setBackground(Color.pink);															
+		add_button.setBounds(0, 0, 200, 80);
 		menu_panel.add(add_button);
 		
 		
@@ -52,29 +57,30 @@ public class MenuPanel extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				HomeMain Test3 = new HomeMain();
+				HomeMain homemain = new HomeMain();
 				
-				add_button.setBounds(0, 0, 198, 81);
-				home_button.setBounds(196, 0, 198, 61);
-				list_button.setBounds(391, 0, 193, 81);
-				add_button.setIcon(new ImageIcon(MainFrame.class.getResource("/img/plus.PNG")));				/**/
-				home_button.setIcon(new ImageIcon(MainFrame.class.getResource("/img/Home_2.PNG")));
-				list_button.setIcon(new ImageIcon(MainFrame.class.getResource("/img/Todo_2.PNG")));				/**/
+				add_button.setBounds(0, 0, 200, 80);
+				home_button.setBounds(200, 0, 200, 80);
+				list_button.setBounds(400, 0, 200, 80);
+				add_button.setIcon(new ImageIcon(MainFrame.class.getResource("/icon/add.PNG")));				/**/
+				home_button.setIcon(new ImageIcon(MainFrame.class.getResource("/icon/home.PNG")));
+				list_button.setIcon(new ImageIcon(MainFrame.class.getResource("/icon/list.PNG")));				/**/
 				
 				MainFrame.contentPane.remove(menu_panel);
 				MainFrame.main_panel.removeAll();
 				MainFrame.contentPane.add(menu_panel);
-				MainFrame.main_panel.add(Test3);
+				MainFrame.main_panel.add(homemain);
 				
 				
-				Test3.revalidate();
-				Test3.repaint();
+				homemain.revalidate();
+				homemain.repaint();
 
 			}
 		});
-		home_button.setBackground(Color.lightGray);
-		home_button.setIcon(new ImageIcon(MainFrame.class.getResource("/img/Home_2.PNG")));
-		home_button.setBounds(196, 0, 198, 61);
+		
+		home_button.setBackground(Color.pink);
+		home_button.setIcon(new ImageIcon(MainFrame.class.getResource("/icon/home.PNG")));
+		home_button.setBounds(200, 0, 200, 80);
 		menu_panel.add(home_button);
 		
 
@@ -84,12 +90,12 @@ public class MenuPanel extends JPanel{
 				
 				AllTodoListMain Test1 = new AllTodoListMain();
 				
-				add_button.setBounds(0, 0, 198, 61);
-				home_button.setBounds(196, 0, 198, 81);
-				list_button.setBounds(391, 0, 193, 81);
-				add_button.setIcon(new ImageIcon(MainFrame.class.getResource("/img/plus.PNG")));					/**/
-				home_button.setIcon(new ImageIcon(MainFrame.class.getResource("/img/Home_1.PNG")));
-				list_button.setIcon(new ImageIcon(MainFrame.class.getResource("/img/Todo_1.PNG")));				/**/
+				add_button.setBounds(0, 0, 200, 80);
+				home_button.setBounds(200, 0, 200, 80);
+				list_button.setBounds(400, 0, 200, 80);
+				add_button.setIcon(new ImageIcon(MainFrame.class.getResource("/icon/add.PNG")));					/**/
+				home_button.setIcon(new ImageIcon(MainFrame.class.getResource("/icon/home.PNG")));
+				list_button.setIcon(new ImageIcon(MainFrame.class.getResource("/icon/list.PNG")));				/**/
 				
 				MainFrame.contentPane.remove(menu_panel);
 				MainFrame.main_panel.removeAll();
@@ -101,16 +107,16 @@ public class MenuPanel extends JPanel{
 				
 			}
 		});
-
-		add_button.setIcon(new ImageIcon(MainFrame.class.getResource("/img/plus.PNG")));					/**/
-		add_button.setBackground(Color.lightGray);															/**/
-		add_button.setBounds(0, 0, 198, 81);
+		/*
+		add_button.setIcon(new ImageIcon(MainFrame.class.getResource("/img/plus.PNG")));					
+		add_button.setBackground(Color.lightGray);															
+		add_button.setBounds(160, 0, 160, 100);
 		menu_panel.add(add_button);
-		
+		*/
 
-		list_button.setIcon(new ImageIcon(MainFrame.class.getResource("/img/Todo_1.PNG")));					/**/
-		list_button.setBackground(Color.lightGray);
-		list_button.setBounds(392, 0, 192, 81);
+		list_button.setIcon(new ImageIcon(MainFrame.class.getResource("/icon/list.PNG")));					/**/
+		list_button.setBackground(Color.pink);
+		list_button.setBounds(390, 0, 200, 80);
 		menu_panel.add(list_button);
 		
 		menu_panel.revalidate();
