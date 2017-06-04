@@ -46,8 +46,8 @@ public class HomeMain extends JPanel{
 	 */
 	public HomeMain() {
 		//HomeMain 
-		setBackground(Color.orange);
-		setBounds(0, 0, 584, 581);
+		setBackground(Color.pink);
+		setBounds(0, 0, 584, 630);
 		setLayout(null);
 
 			String[] row = {
@@ -111,16 +111,13 @@ public class HomeMain extends JPanel{
 		table.setRowHeight(50);
 		
 		
-		table.setBounds(0,0, 584, 581);
+		table.setBounds(0,0, 584, 630);
 		
 		JScrollPane jscrollpane = new JScrollPane(table);
-		jscrollpane.setBounds(0, 60, 584, 477);
+		jscrollpane.setBounds(0, 60, 584, 570);
 		add(jscrollpane);
 		
-		JLabel TimeTable = new JLabel("시간표");
-		TimeTable.setFont(new Font("바탕체", Font.PLAIN, 20));
-		TimeTable.setBounds(12, 0, 64, 60);
-		add(TimeTable);
+
 		//여기서부터 
 		table.addMouseListener(new MouseAdapter(){
 			public void mouseClicked(MouseEvent e) throws NullPointerException, ArrayIndexOutOfBoundsException{
@@ -133,8 +130,8 @@ public class HomeMain extends JPanel{
 				}
 			}
 		});
-		//여기까지 달라졌음(2)
-	}										/*��������*/
+		
+	}										
 
 	void paintTable(String[][] subject, Object[][] column){
 		

@@ -58,7 +58,7 @@ public class MainFrame extends JFrame{
 		//어플리케이션 종료시 모든 window종료 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//크기와 좌표 지정(전체 크기)
-		setBounds(100, 100, 600, 820);
+		setBounds(100, 100, 600, 760);
 		
 		
 		//메인 창 틀
@@ -81,7 +81,7 @@ public class MainFrame extends JFrame{
 		//메뉴 패널 색
 		contentPane.setBackground(Color.pink);
 		contentPane.setBorder(null);
-		contentPane.setBounds(0, 700, 600, 80);
+		contentPane.setBounds(0, 630, 600, 80);
 		add(contentPane);
 		contentPane.setLayout(null);
 		MenuPanel menu = new MenuPanel();
@@ -89,7 +89,7 @@ public class MainFrame extends JFrame{
 		
 		main_panel = new JPanel();
 		main_panel.setBounds(0, 0, 600, 630);
-		main_panel.setBackground(Color.blue);
+		main_panel.setBackground(Color.pink);
 		add(main_panel);
 		main_panel.setLayout(null);
 		

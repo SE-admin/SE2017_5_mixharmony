@@ -59,7 +59,10 @@ public class SubjectOption extends JDialog{
  
             public void actionPerformed(ActionEvent e) {
             	//
-                JOptionPane.showMessageDialog(frame, "To do list 선택!");
+
+            	TodoList_list list = new TodoList_list();
+            	frame.removeAll();//+++
+				frame.add(list);
 				//frame.removeAll();
 				//frame.add(new Subject_Add());
             }
@@ -92,7 +95,7 @@ public class SubjectOption extends JDialog{
             }
         });
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        frame.setSize(300, 200);
+        frame.setSize(584, 581);
         frame.setVisible(true);
     }
 	
