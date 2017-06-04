@@ -9,9 +9,15 @@ import java.io.IOException;
 import java.awt.Window.*;
 
 public class SubjectOption extends JDialog{
-	 
+	public static JPanel option_panel = new JPanel();
     public SubjectOption(String[] subject) {
         final JFrame frame = new JFrame("Popup Menu Demo");
+        frame.setLocationRelativeTo(MainFrame.main_panel);
+        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		frame.setBounds(100, 100, 319, 190);
+        frame.setSize(584, 581);
+        frame.setVisible(true);
+    	frame.getContentPane().add(option_panel, BorderLayout.CENTER);
 
     	
         // build poup menu
@@ -21,13 +27,16 @@ public class SubjectOption extends JDialog{
         menuItem.addActionListener(new ActionListener() {
  
             public void actionPerformed(ActionEvent e) {
-            	//
-                //JOptionPane.showMessageDialog(frame, "수정 선택!");
-				//frame.removeAll();
-				//frame.add(new Subject_Add());
-				SubjectModify subject_modi = new SubjectModify(subject);    //+++
-				frame.removeAll();//+++
-				frame.add(subject_modi);	//+++
+            	SubjectModify subject_modify;
+            	try{
+            		subject_modify = new SubjectModify(subject);
+            		SubjectOption.option_panel.removeAll();
+            		SubjectOption.option_panel.add(subject_modify);
+            		subject_modify.repaint();
+            	}
+            	catch(IOException ex){
+            		ex.printStackTrace();
+            	}
             }
             
         });
@@ -58,13 +67,16 @@ public class SubjectOption extends JDialog{
         menuItem.addActionListener(new ActionListener() {
  
             public void actionPerformed(ActionEvent e) {
-            	//
-
-            	TodoList_list list = new TodoList_list();
-            	frame.removeAll();//+++
-				frame.add(list);
-				//frame.removeAll();
-				//frame.add(new Subject_Add());
+            	TodolistList todolist_list;
+            	try{
+            		todolist_list = new TodolistList(subject);
+            		SubjectOption.option_panel.removeAll();
+            		SubjectOption.option_panel.add(todolist_list);
+            		todolist_list.repaint();
+            	}
+            	catch(IOException ex){
+            		ex.printStackTrace();
+            	}
             }
         });
         popup.add(menuItem);

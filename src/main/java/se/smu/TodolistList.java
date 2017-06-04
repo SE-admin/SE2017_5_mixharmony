@@ -9,17 +9,27 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.border.EtchedBorder;
 import javax.swing.table.DefaultTableModel;
 
 
-public class TodoList_list extends JPanel{
+public class TodolistList extends JPanel{
 	private JTable TodoList_table;
 	
-	TodoList_list(){
+	TodolistList(String [] subject) throws IOException{
 		setBackground(Color.WHITE);
 		setBounds(0, 0, 584, 581);
 		setLayout(null);
 
+		EtchedBorder eborder;
+		eborder = new EtchedBorder(EtchedBorder.LOWERED);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
+		panel.setBounds(0, 0, 319, 400);
+		add(panel);
+		panel.setLayout(null);
+		
 		Object[][] column =	{
 				{null,null,null},
 				{null,null,null},
@@ -68,7 +78,7 @@ public class TodoList_list extends JPanel{
 			}
 		});
 		TodoList_table.setBounds(23, 84, 538, 236);
-		add(TodoList_table);
+		panel.add(TodoList_table);
 		
 	
 		//등록
@@ -84,7 +94,7 @@ public class TodoList_list extends JPanel{
 		add.setBorder(null);
 		add.setBackground(Color.WHITE);
 		add.setBounds(30, 350, 80, 50);
-		add(add);
+		panel.add(add);
 		
 		
 		//수정
@@ -101,7 +111,7 @@ public class TodoList_list extends JPanel{
 		edit.setBorder(null);
 		edit.setBackground(Color.WHITE);
 		edit.setBounds(120, 350, 80, 50);
-		add(edit);
+		panel.add(edit);
 		
 		
 		//삭제
@@ -119,7 +129,7 @@ public class TodoList_list extends JPanel{
 		del.setBorder(null);
 		del.setBackground(Color.WHITE);
 		del.setBounds(210, 350, 80, 50);
-		add(del);
+		panel.add(del);
 		
 		
 		//완료
@@ -136,7 +146,7 @@ public class TodoList_list extends JPanel{
 		done.setBorder(null);
 		done.setBackground(Color.WHITE);
 		done.setBounds(300, 350, 80, 50);
-		add(done);
+		panel.add(done);
 		
 		
 	}

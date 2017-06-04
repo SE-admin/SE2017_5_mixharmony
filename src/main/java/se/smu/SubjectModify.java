@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
-public class SubjectModify extends JDialog{
+public class SubjectModify extends JPanel{
 	private JTextField subject_name;
 	private JTextField professor_name;
 	private JComboBox day_of_subject;
@@ -31,13 +31,12 @@ public class SubjectModify extends JDialog{
 	/**
 	 * Create the panel.
 	 */
-	public SubjectModify(String[] subject){
-		setAlwaysOnTop(true);							//+
-		setBounds(100, 100, 319, 400);					//+	//
-		setModal(true);									//+
-		setLocationRelativeTo(MainFrame.main_panel);		//+
+	public SubjectModify(String[] subject) throws IOException{
+		//setAlwaysOnTop(true);							//+
+		setBounds(0, 0, 319, 400);					//+	//
+		//setModal(true);									//+
+		//setLocationRelativeTo(MainFrame.main_panel);		//+
 		setBackground(Color.WHITE);
-		setBounds(100,100, 319, 400);
 		setLayout(null);
 		SubjectContents contents = new SubjectContents();				
 
@@ -57,7 +56,7 @@ public class SubjectModify extends JDialog{
 					subjectModifying(subject);
 				} catch (IOException | ErrorException e1) {
 				} 
-				dispose();										///
+				//dispose();										///
 			}
 		});
 		complete.setBounds(120+219, 170+65*4, 100, 60);
