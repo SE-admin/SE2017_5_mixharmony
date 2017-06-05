@@ -15,7 +15,7 @@ public class SubjectOption extends JDialog{
         frame.setLocationRelativeTo(MainFrame.main_panel);
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frame.setBounds(100, 100, 319, 190);
-        frame.setSize(584, 581);
+        frame.setSize(420, 481);
         frame.setVisible(true);
     	frame.getContentPane().add(option_panel, BorderLayout.CENTER);
 
@@ -107,7 +107,7 @@ public class SubjectOption extends JDialog{
             }
         });
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        frame.setSize(584, 581);
+        frame.setSize(420, 480);
         frame.setVisible(true);
     }
 	

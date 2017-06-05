@@ -112,7 +112,7 @@ public class SubjectAdd extends JDialog {
 		add(subject_type);												//
 
 
-		setSize(319, 400);			
+		setSize(500, 700);			
 		setVisible(true);										//
 		
 	}
