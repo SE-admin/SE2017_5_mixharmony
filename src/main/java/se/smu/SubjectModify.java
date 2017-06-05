@@ -33,19 +33,25 @@ public class SubjectModify extends JPanel{
 	 */
 	public SubjectModify(String[] subject) throws IOException{
 		//setAlwaysOnTop(true);							//+
-		setBounds(0, 0, 319, 400);					//+	//
+		setBounds(0, 0, 420, 480);					//+	//
 		//setModal(true);									//+
 		//setLocationRelativeTo(MainFrame.main_panel);		//+
 		setBackground(Color.WHITE);
 		setLayout(null);
-		SubjectContents contents = new SubjectContents();				
+		SubjectContents contents = new SubjectContents();
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
+		panel.setBounds(0, 0, 420, 480);
+		add(panel);
+		panel.setLayout(null);
 
 		old_subject = subject.clone();			///
 		
 		JLabel sub_add_label = new JLabel("과목수정");
 		sub_add_label.setFont(new Font("바탕체", Font.PLAIN, 15));			//
-		sub_add_label.setBounds(100, 100, 319, 50);						//
-		add(sub_add_label);									//
+		sub_add_label.setBounds(120, 0, 319, 50);						//
+		panel.add(sub_add_label);									//
 		
 		JButton complete = new JButton("완료");
 		complete.addActionListener(new ActionListener() {
@@ -59,51 +65,51 @@ public class SubjectModify extends JPanel{
 				//dispose();										///
 			}
 		});
-		complete.setBounds(120+219, 170+65*4, 100, 60);
-		add(complete);												//
+		complete.setBounds(120+190, 170+70*3, 60, 40);
+		panel.add(complete);												//
 		
 		subject_name = new JTextField(subject[0]);
-		subject_name.setBounds(120, 170, 279, 60);
-		add(subject_name);										//
+		subject_name.setBounds(40, 60, 320, 60);
+		panel.add(subject_name);										//
 		subject_name.setColumns(10);
 		
 		professor_name = new JTextField(subject[1]);
 		professor_name.setColumns(10);
-		professor_name.setBounds(120, 170+65, 279, 60);
-		add(professor_name);											//
+		professor_name.setBounds(40, 60+65, 320, 60);
+		panel.add(professor_name);											//
 		
 		
 		day_of_subject = new JComboBox(contents.days);
-		day_of_subject.setBounds(120, 170+65*2,80, 60);
-		add(day_of_subject);										//
+		day_of_subject.setBounds(40, 60+65*2,100, 60);
+		panel.add(day_of_subject);										//
 		
 		start_time = new JComboBox(contents.time1);
-		start_time.setBounds(120+99, 170+65*2, 80, 60);
-		add(start_time);											//
+		start_time.setBounds(40+110, 60+65*2, 100, 60);
+		panel.add(start_time);											//
 		
 		end_time = new JComboBox(contents.time2);
-		end_time.setBounds(120+99+95, 170+65*2, 80, 60);
-		add(end_time);											//
+		end_time.setBounds(40+100+120, 60+65*2, 100, 60);
+		panel.add(end_time);											//
 		
 		JLabel dash = new JLabel("\u3161");
 		dash.setFont(new Font("바탕체", Font.PLAIN, 13));
-		dash.setBounds(120+99+85, 170+65*2, 80, 60);
-		add(dash);										//
+		dash.setBounds(40+100+110, 60+65*2, 80, 60);
+		panel.add(dash);										//
 		
 		year = new JComboBox(contents.year);						//
-		year.setBounds(120, 170+65*3, 130, 60);
-		add(year);									//
+		year.setBounds(40, 60+65*3, 150, 60);
+		panel.add(year);									//
 		
 		semester = new JComboBox(contents.semester);
-		semester.setBounds(120+149, 170+65*3, 130, 60);
-		add(semester);											//
+		semester.setBounds(60+149, 60+65*3, 150, 60);
+		panel.add(semester);											//
 		
 		subject_type = new JComboBox(contents.subject_type);
-		subject_type.setBounds(120, 170+65*4, 200, 60);
-		add(subject_type);												//
+		subject_type.setBounds(40, 60+65*4, 200, 60);
+		panel.add(subject_type);												//
 
 
-		setSize(319, 400);											//
+		setSize(420, 480);											//
 		setVisible(true);										//
 		
 	}
