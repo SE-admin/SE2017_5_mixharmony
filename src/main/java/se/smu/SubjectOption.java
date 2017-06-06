@@ -21,7 +21,7 @@ public class SubjectOption extends JDialog{
 
     	
         // build poup menu
-        final JPopupMenu popup = new JPopupMenu();
+         JPopupMenu popup = new JPopupMenu();		//원래 앞에 final
         // New project menu item
         JMenuItem menuItem = new JMenuItem("수정");
         menuItem.addActionListener(new ActionListener() {
@@ -110,5 +110,4 @@ public class SubjectOption extends JDialog{
         frame.setSize(420, 480);
         frame.setVisible(true);
     }
-	
 }

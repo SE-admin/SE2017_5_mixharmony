@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-
+//JPanel
 public class SubjectModify extends JPanel{
 	private JTextField subject_name;
 	private JTextField professor_name;
@@ -28,11 +28,13 @@ public class SubjectModify extends JPanel{
 	private JComboBox subject_type;						//
 	private JPanel contentPanel = new JPanel();			//+
 	private String [] old_subject;					///
+	
 	/**
 	 * Create the panel.
 	 */
 	public SubjectModify(String[] subject) throws IOException{
 		//setAlwaysOnTop(true);							//+
+		
 		setBounds(0, 0, 420, 480);					//+	//
 		//setModal(true);									//+
 		//setLocationRelativeTo(MainFrame.main_panel);		//+
@@ -60,9 +62,12 @@ public class SubjectModify extends JPanel{
 				try {
 					checkTheValue();
 					subjectModifying(subject);
+					panel.setVisible(false);					////
+					panel.removeAll();	///
+					
+
 				} catch (IOException | ErrorException e1) {
 				} 
-				//dispose();										///
 			}
 		});
 		complete.setBounds(120+190, 170+70*3, 60, 40);
@@ -146,6 +151,7 @@ public class SubjectModify extends JPanel{
 						
 					Home.revalidate();
 					Home.repaint();
+					
 				
 				}
 		}
