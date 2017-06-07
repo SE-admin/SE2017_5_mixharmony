@@ -146,23 +146,23 @@ public class TodolistList extends JPanel{
             int row = todolist_table.getSelectedRow();
             int col = todolist_table.getSelectedColumn();
             String value = (String) todolist_table.getValueAt(row, col);
-            
+            /*
             if(value.equals("")){
                
             }
             else{
-               TodolistModify modi;
+               //TodolistModify modi;
                try{
-                  modi = new TodolistModify(subject, MainFrame.findList(value, MainFrame.Todo));
+               //   modi = new TodolistModify(subject, MainFrame.findList(value, MainFrame.Todo));
                   
                   SubjectOption.option_panel.removeAll();
-                  SubjectOption.option_panel.add(modi);
-                  modi.repaint(); 
+                //  SubjectOption.option_panel.add(modi);
+                 // modi.repaint(); 
                }
                catch(IOException e1){
                   e1.printStackTrace();
                }
-            }
+            }*/
                
          }
       });

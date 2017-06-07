@@ -59,6 +59,7 @@ public class TodolistAdd extends JPanel{
             try{
                hide();
                checkTheValue();
+               checkTheValue2();
                addTodolist();
                MainFrame.Todo = MainFrame.get_Todo();
                
@@ -146,6 +147,16 @@ public class TodolistAdd extends JPanel{
          }
       }
    }
+   void checkTheValue2() throws ErrorException{
+	      String temp1 = deadline_month.getSelectedItem().toString();
+	      String temp2 = deadline_date.getSelectedItem().toString();
+	      
+	
+	         if(temp1.equals("2")&&temp2.equals("31")){
+	            throw new ErrorException();
+	         }
+	      
+	   }
    void saveTodolist() throws IOException{
       File f = new File("Todo_out.txt");
       
@@ -196,7 +207,7 @@ public class TodolistAdd extends JPanel{
           print_writer.print(finish_date+"`");//11
           print_writer.println();
          
-           print_writer.close();
+          print_writer.close();
           
    }
    
