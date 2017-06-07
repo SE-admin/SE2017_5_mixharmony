@@ -43,7 +43,7 @@ public class SubjectModify extends JPanel{
 		SubjectContents contents = new SubjectContents();
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.WHITE);
+		//panel.setBackground(Color.WHITE);
 		panel.setBounds(0, 0, 420, 480);
 		add(panel);
 		panel.setLayout(null);
@@ -112,8 +112,7 @@ public class SubjectModify extends JPanel{
 		subject_type = new JComboBox(contents.subject_type);
 		subject_type.setBounds(40, 60+65*4, 200, 60);
 		panel.add(subject_type);												//
-
-
+		
 		setSize(420, 480);											//
 		setVisible(true);										//
 		

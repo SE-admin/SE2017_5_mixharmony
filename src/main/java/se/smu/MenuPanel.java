@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.AbstractDocument.Content;
-
+import se.smu.MainFrame;
 
 public class MenuPanel extends JPanel{
 	/**
@@ -58,6 +58,7 @@ public class MenuPanel extends JPanel{
 				
 				
 				HomeMain homemain = new HomeMain();
+				MainTitle maintitle = new MainTitle();
 				
 				add_button.setBounds(0, 0, 200, 80);
 				home_button.setBounds(200, 0, 200, 80);
@@ -70,10 +71,13 @@ public class MenuPanel extends JPanel{
 				MainFrame.main_panel.removeAll();
 				MainFrame.contentPane.add(menu_panel);
 				MainFrame.main_panel.add(homemain);
+				homemain.add(maintitle);
 				
 				
 				homemain.revalidate();
 				homemain.repaint();
+				maintitle.revalidate();
+				maintitle.repaint();
 
 			}
 		});

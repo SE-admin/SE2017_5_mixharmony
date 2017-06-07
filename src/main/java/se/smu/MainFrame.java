@@ -155,11 +155,11 @@ public class MainFrame extends JFrame{
 		
 		br = new BufferedReader(new FileReader("Todo_out.txt"));
 		
-		String Todo[][]= new String[count_line][10];
+		String Todo[][]= new String[count_line][12];
 		
 
 		for(int i=0;i<Todo.length;i++){
-			token= new StringTokenizer(br.readLine(),"`");
+			token = new StringTokenizer(br.readLine(),"`");
 			
 			for(int j=0;j<Todo[i].length;j++){
 				Todo[i][j]=token.nextToken();

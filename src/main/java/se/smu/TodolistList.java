@@ -16,6 +16,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 import javax.swing.table.DefaultTableModel;
 
+import se.smu.MainFrame;
+
 
 public class TodolistList extends JPanel{
 	private JTable TodoList_table;
@@ -69,7 +71,7 @@ public class TodolistList extends JPanel{
 		TodoList_table= new JTable();		
 		
 		
-		
+		get_Todo_name(column, subject[0]);
 		
 		TodoList_table.setModel(new DefaultTableModel(column,row) {
 			Class[] columnTypes = new Class[] {
@@ -98,12 +100,26 @@ public class TodolistList extends JPanel{
 		TodoList_table.setRowHeight(42);
 		TodoList_table.getColumnModel().getColumn(0).setMaxWidth(40);
 		
+		
+		
+		
 		//등록
 		JButton add = new JButton("");
 		add.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-			
+				TodolistAdd add;
+				try {
+					add = new TodolistAdd(subject);
+					MainFrame.main_panel.removeAll();
+					MainFrame.main_panel.add(add);
+					
+					add.revalidate();
+					add.repaint();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			
 			}
 		});
@@ -112,6 +128,7 @@ public class TodolistList extends JPanel{
 		add.setBackground(Color.WHITE);
 		add.setBounds(5, 341, 96, 48);
 		panel.add(add);
+		
 		
 		
 		//수정
@@ -169,7 +186,21 @@ public class TodolistList extends JPanel{
 	}
 
 
-	
+	void get_Todo_name(Object [][] column, String subject_name){
+		
+		
+		//System.out.println("진입");
+		int temp=0;
+		for(int i=0;i<MainFrame.Todo.length;i++){
+			
+			if(MainFrame.Todo[i][0].equals(subject_name)){
+				column[temp][1]=MainFrame.Todo[i][1];
+				column[temp][2]=MainFrame.Todo[i][2]+"."+MainFrame.Todo[i][3]+"."+MainFrame.Todo[i][4];
+				temp++;
+			}
+		}
+		
+	}
 	
 
 }

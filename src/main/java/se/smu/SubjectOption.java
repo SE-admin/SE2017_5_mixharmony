@@ -8,7 +8,7 @@ import java.io.IOException;
 
 import java.awt.Window.*;
 
-public class SubjectOption extends JDialog{
+public class SubjectOption extends JPanel{
 	public static JPanel option_panel = new JPanel();
     public SubjectOption(String[] subject) {
         final JFrame frame = new JFrame("Popup Menu Demo");
@@ -33,6 +33,7 @@ public class SubjectOption extends JDialog{
             		SubjectOption.option_panel.removeAll();
             		SubjectOption.option_panel.add(subject_modify);
             		subject_modify.repaint();
+            		//frame.setVisible(false);
             	}
             	catch(IOException ex){
             		ex.printStackTrace();
@@ -57,7 +58,7 @@ public class SubjectOption extends JDialog{
             	}catch(IOException e1){
             		e1.printStackTrace();
             	}
-            	dispose();
+            	//dispose();
             	//여기까지
             }
         });
