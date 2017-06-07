@@ -1,94 +1,80 @@
 package se.smu;
 
-import javax.swing.JPanel;
 import java.awt.Color;
-
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
-import javax.swing.JScrollPane;
-import se.smu.MainFrame;
-import java.io.IOException;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.Font;
+import java.io.IOException;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
-
-
+import se.smu.MainFrame;
 
 public class AllTodoListMain2 extends JPanel implements ItemListener{
-	private JTable todo_table;
+	
 	private String choice;
+	private JTable todo_table;
+	
+	/**
+	 * Create the panel.
+	 */
 	public AllTodoListMain2() {
-
 		setBackground(Color.WHITE);
-		setBounds(0, 0, 584, 581);
+		setBounds(0, 0, 584, 628);
 		setLayout(null);
 		
 		
 		
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 584, 56);
+		panel.setBounds(0, 0, 584, 82);
 		panel.setBackground(Color.pink);
 		add(panel);
 		panel.setLayout(null);
 		
-		JLabel label_1 = new JLabel("\uC804\uCCB4 \uD560 \uC77C \uBAA9\uB85D");
-		label_1.setFont(new Font("���� ���", Font.PLAIN, 20));
-		label_1.setHorizontalAlignment(SwingConstants.CENTER);
-		label_1.setBounds(0, 0, 159, 56);
-		panel.add(label_1);
-
-		int a=0;
-		int b;
+		JLabel todo_label = new JLabel("5조-PENTA");
+		todo_label.setFont(new Font("고딕체", Font.PLAIN, 30));
+		todo_label.setHorizontalAlignment(SwingConstants.CENTER);
+		todo_label.setBounds(220, 0, 160, 50);
 		
+		panel.add(todo_label);
+		
+
+		int a;
+		int b=0;
 		
 		if(MainFrame.Todo.length==0){
-			// todo����Ʈ�� �߰����� �ʾ�����
-			
 			a=1;
 			b=1;
-			
 		}
-		//todo[todo�� ����][todo �׸�]
+		
 		else{
-			// a�� ���θ���Ʈ�� ����
-			// b�� todo�׸��� ������ ����
-			//a�� �����ؼ� ���̺��� ũ�⸦ ������ �� �ִ�.
-			//a=40;
-			b = MainFrame.Todo[0].length;
-			
-			
-			for(int i=0; i<MainFrame.Todo.length; i++){
-				if(MainFrame.Todo[i][9].equals("X"))
-					a++;
-			}
-			
+			a=MainFrame.Todo.length;
+			b=b=MainFrame.Todo[0].length;
+				
 		}
-		//ũ�� �����Ҵ�
+		
 		Object[][] column = new Object[a][b];
-		//�޴�
 		String[] row = {
-			"�����", "�� ��", "�߿䵵", "��������","����������", "�Ϸ�"
+			"과목명", "할 일", "중요도", "마감 기한", "완료", "실제 마감일"
 		};
 		
 		
 		try {
-			//todo����Ʈ �ҷ�����
 			MainFrame.Todo=MainFrame.get_Todo();
-			//
-			paint_Todo_table(MainFrame.Todo,column);
+			paintToDoTable(MainFrame.Todo,column);
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -97,10 +83,9 @@ public class AllTodoListMain2 extends JPanel implements ItemListener{
 			e.getMessage();
 		}
 		
-		//todo��ü���̺� ����
-		todo_table = new JTable();		
-		todo_table.setBounds(27, 80, 533, 174);
 		
+		todo_table = new JTable();		
+		todo_table.setBounds(0, 82, 583, 575);
 		todo_table.setModel(new DefaultTableModel(column,row){
 			boolean[] columnEditables = new boolean[] {
 				false, false, false, false, false, false, false
@@ -110,143 +95,85 @@ public class AllTodoListMain2 extends JPanel implements ItemListener{
 			}
 		});
 		
-		/*
-		DefaultTableModel model = new DefaultTableModel(column2,row);
-		todo_table.setModel(model);
-		*/
+
 		
-		//�����ϴ� �Լ�
 		todo_table.setRowSorter(new TableRowSorter(new DefaultTableModel(column,row)));
 		
-		//���ùڽ� �߰�
-		JComboBox sorter = new JComboBox();
-		sorter.addItem("�����"); 
-		sorter.addItem("�� ��"); 
-		sorter.addItem("�߿䵵"); 
-		sorter.addItem("��������");
-		sorter.addItem("����������");
-		sorter.addItem("�Ϸ�");
-		sorter.setBackground(Color.white);
-		sorter.setBounds(396,249,102,25);
-		sorter.addItemListener(this); 
-		sorter.setVisible(true);
-		add(sorter);
-
 		
-
-		//filter(MainFrame.Todo,column, row);
-		filter();
-		
-		//todo_table.getRowSorter();
-		
-		//todo_table.sorterChanged(e);
+		todo_table.getColumnModel().getColumn(2).setMaxWidth(60);
+		todo_table.getColumnModel().getColumn(4).setMaxWidth(60);
 		
 		JScrollPane scrollPane = new JScrollPane(todo_table);
-		scrollPane.setBounds(0, 55, 584, 526);
+		scrollPane.setBounds(0, 82, 583, 575);
 		scrollPane.setBackground(Color.WHITE);
 		add(scrollPane);
 		
+		JComboBox sorter = new JComboBox();
+		sorter.addItem("과목명"); 
+		sorter.addItem("할 일"); 
+		sorter.addItem("중요도"); 
+		sorter.addItem("마감기한");
+		sorter.addItem("실제마감일");
+		sorter.addItem("완료");
+		sorter.setBackground(Color.white);
+		sorter.setBounds(400,50,150,30);
+		sorter.addItemListener(this); 
+		sorter.setVisible(true);
+		panel.add(sorter);
 		
-		/*
-		todo_table.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				int row = todo_table.getSelectedRow();
-				int col = 1;
-				String value = (String) todo_table.getValueAt(row, col);
-				
-				if (e.getClickCount() == 2) {
-					
-					try {
-						
-						TodoList_Detail detail = new TodoList_Detail(MainFrame.find_list(value,MainFrame.Todo));
-						
-						MainFrame.main_panel.removeAll();
-						MainFrame.main_panel.add(detail);
-						
-						
-						detail.revalidate();
-						detail.repaint();
-						
-					} catch (NullPointerException e1){
-						e1.getMessage();
-					}
-				
-				}
-			}
-		});
-		*/
-		
-		
+		filter(MainFrame.Todo,column, row);
 
-	
-	
-	
-	}
-	void filter(){
-		JButton Filter = new JButton("���̱�");
-		Filter.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				AllTodoListMain Test1 = new AllTodoListMain();
-				
-				MainFrame.main_panel.removeAll();
-				MainFrame.main_panel.add(Test1);
-			}
-			
-		});
-		
-		Filter.setFont(new Font("���� ���", Font.PLAIN, 12));
-		Filter.setBounds(396, 350, 100, 20);
-		Filter.setVisible(true);
-		add(Filter);
-
-		
-	}
-	
-	//���Ӱ� ���� column������ �迭
-	void paint_Todo_table(String[][] Todo, Object[][] column){
+}
+	void paintToDoTable(String[][] Todo, Object[][] column){
 		int b = 0;
 		for(int i=0;i<Todo.length;i++){
-			if(Todo[i][9].equals("X")){
+			if(Todo[i][8].equals("X")){
 			column[b][0] = Todo[i][0];
 			column[b][1] = Todo[i][1];
+
+			column[b][3] = Todo[i][2]+"/"+Todo[i][3]+"/"+Todo[i][4]+"  "+Todo[i][5]+":"+Todo[i][6];
 			
-			switch(Todo[i][8]){
+			if(Todo[i][5].equals(null))
+			column[b][4] = null;
+			else
+				column[b][4] = Todo[i][9]+"/"+Todo[i][10]+"/"+Todo[i][11];	
 			
-			case "0":
-				column[b][2] = "";
-				break;
-			case "1":
-				column[b][2] = "��";
-				break;
-			case "2":
-				column[b][2] = "�ڡ�";
-				break;
-			case "3":
-				column[b][2] = "�ڡڡ�";
-				break;
 			
-			}
-			
-			column[b][3] = Todo[i][2]+"/"+Todo[i][3]+"/"+Todo[i][4];
-			if(Todo[i][5].equals("0")&&Todo[i][6].equals("0")&&Todo[i][7].equals("0")){
-				column[b][4]="";
-			}
-			else{
-				column[b][4] = Todo[i][5]+"/"+Todo[i][6]+"/"+Todo[i][7];
-			}
-			
-			column[b][5] = Todo[i][9];
-			
+			column[b][2] = Todo[i][7];
+			column[b][4] = Todo[i][8];
 			b++;
-			
 			}
-			
 		}
 	}
-	//üũ�ڽ��� �����ϴ� �Լ�(�����ʸ� ��ӹ����� ������ �ϴ� �Լ�) 
+	
+	void filter(String[][] Todo, Object[][] column2,String[] row){
+		JButton Filter = new JButton("보이기");
+		Filter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try{
+				AllTodoListMain Test1 = new AllTodoListMain();
+				
+			
+				MainFrame.main_panel.removeAll();
+				MainFrame.main_panel.add(Test1);
+				
+				Test1.revalidate();
+				Test1.repaint();
+				}
+				catch (NullPointerException e1){
+					e1.getMessage();
+				}
+			
+			}
+			
+		});
+		
+		Filter.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		Filter.setBounds(230,50,150,30);
+		Filter.setVisible(true);
+		add(Filter);
+	}
+	
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		// TODO Auto-generated method stub
@@ -254,22 +181,22 @@ public class AllTodoListMain2 extends JPanel implements ItemListener{
 		
 	    switch(choice)
 		{
-		case "�����" :
+		case "과목명" :
 			todo_table.getRowSorter().toggleSortOrder(0);
 			break;
-		case "�� ��" :
+		case "할 일" :
 			todo_table.getRowSorter().toggleSortOrder(1);
 			break;
-		case "�߿䵵" :
+		case "중요도" :
 			todo_table.getRowSorter().toggleSortOrder(2);
 			break;
-		case "��������" :
+		case "마감기한" :
 			todo_table.getRowSorter().toggleSortOrder(3);
 			break;
-		case "����������" :
+		case "완료" :
 			todo_table.getRowSorter().toggleSortOrder(4);
 			break;
-		case "�Ϸ�" :
+		case "실제마감일" :
 			todo_table.getRowSorter().toggleSortOrder(5);
 			break;
 		}
@@ -278,4 +205,5 @@ public class AllTodoListMain2 extends JPanel implements ItemListener{
 	
 	
 }
+
 

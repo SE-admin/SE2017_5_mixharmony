@@ -44,26 +44,26 @@ public class TodolistList extends JPanel{
 		panel.add(todo_label);
 		
 		Object[][] column =	{
-				{1,null,null},
-				{2,null,null},
-				{3,null,null},
-				{4,null,null},
-				{5,null,null},
-				{6,null,null},
-				{7,null,null},
-				{8,null,null},
-				{9,null,null},
-				{10,null,null},
-				{11,null,null},
-				{12,null,null},
-				{13,null,null},
-				{14,null,null},
-				{15,null,null},
-				{16,null,null}
+				{1,null,null,null},
+				{2,null,null,null},
+				{3,null,null,null},
+				{4,null,null,null},
+				{5,null,null,null},
+				{6,null,null,null},
+				{7,null,null,null},
+				{8,null,null,null},
+				{9,null,null,null},
+				{10,null,null,null},
+				{11,null,null,null},
+				{12,null,null,null},
+				{13,null,null,null},
+				{14,null,null,null},
+				{15,null,null,null},
+				{16,null,null,null}
 			};
 	
 		String[] row = {
-			"", "할 일", "마감 기한"
+			"", "할 일", "마감 기한","중요도"
 		};
 		
 	
@@ -99,6 +99,7 @@ public class TodolistList extends JPanel{
 		
 		TodoList_table.setRowHeight(42);
 		TodoList_table.getColumnModel().getColumn(0).setMaxWidth(40);
+		TodoList_table.getColumnModel().getColumn(3).setMaxWidth(40);
 		
 		
 		
@@ -198,7 +199,8 @@ public class TodolistList extends JPanel{
 			
 			if(MainFrame.Todo[i][0].equals(subject_name)){
 				column[temp][1]=MainFrame.Todo[i][1];
-				column[temp][2]=MainFrame.Todo[i][2]+"."+MainFrame.Todo[i][3]+"."+MainFrame.Todo[i][4];
+				column[temp][2]=MainFrame.Todo[i][2]+"/"+MainFrame.Todo[i][3]+"/"+MainFrame.Todo[i][4]+"   "+MainFrame.Todo[i][5]+":"+MainFrame.Todo[i][6];
+				column[temp][3]=MainFrame.Todo[i][7];
 				temp++;
 			}
 		}
