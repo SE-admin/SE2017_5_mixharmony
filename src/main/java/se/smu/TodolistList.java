@@ -111,10 +111,13 @@ public class TodolistList extends JPanel{
 				TodolistAdd add;
 				try {
 					add = new TodolistAdd(subject);
-					MainFrame.main_panel.removeAll();
-					MainFrame.main_panel.add(add);
+					//MainFrame.main_panel.removeAll();
+					//MainFrame.main_panel.add(add);
+					SubjectOption.option_panel.removeAll();
+					SubjectOption.option_panel.add(add);
+					add.repaint();
 					
-					add.revalidate();
+					//add.revalidate();
 					add.repaint();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
