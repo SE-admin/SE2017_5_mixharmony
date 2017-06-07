@@ -34,21 +34,21 @@ public class Del_Popup extends JDialog {
 		JLabel message = new JLabel("삭제완료");
 		message.setBackground(Color.WHITE);
 		message.setFont(new Font("바탕체", Font.PLAIN, 20));
-		message.setBounds(70, 24, 178, 47);
+		message.setBounds(100, 24, 178, 47);
 		contentPanel.add(message);
 		
-		JButton cancel = new JButton("");
-		cancel.setIcon(new ImageIcon(Del_Popup.class.getResource("/img/cancel.PNG")));
-		cancel.setBackground(Color.WHITE);
-		cancel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
+//		JButton cancel = new JButton("");
+//		cancel.setIcon(new ImageIcon(Del_Popup.class.getResource("/img/cancel.PNG")));
+////		cancel.setBackground(Color.WHITE);
+	//	cancel.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				dispose();
 				
-			}
-		});
-		cancel.setBorder(null);
-		cancel.setBounds(5, 94, 147, 47);
-		contentPanel.add(cancel);
+//			}
+//		});
+//		cancel.setBorder(null);
+//		cancel.setBounds(5, 94, 147, 47);
+//		contentPanel.add(cancel);
 		
 		JButton confirm = new JButton("");
 		confirm.setIcon(new ImageIcon(Del_Popup.class.getResource("/img/confirm.PNG")));
@@ -78,7 +78,7 @@ public class Del_Popup extends JDialog {
 			}
 		});
 		confirm.setBorder(null);
-		confirm.setBounds(148, 94, 152, 47);
+		confirm.setBounds(74, 94, 152, 47);
 		contentPanel.add(confirm);
 		
 	}

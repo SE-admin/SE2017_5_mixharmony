@@ -124,7 +124,7 @@ public class AllTodoListMain extends JPanel implements ItemListener{
 	}
 	
 	void paintToDoTable(String[][] Todo, Object[][] column){
-		
+
 		for(int i=0;i<Todo.length;i++){
 			column[i][0] = Todo[i][0];
 			column[i][1] = Todo[i][1];

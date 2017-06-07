@@ -19,6 +19,8 @@ public class ErrorPopup extends JDialog {
 	 * Create the dialog.
 	 */
 	public ErrorPopup() {
+		setAlwaysOnTop(true);
+
 		setBounds(100, 100, 319, 190);
 		setModal(true);
 		setLocationRelativeTo(MainFrame.main_panel);

@@ -29,10 +29,15 @@ public class SubjectTableRenderer extends DefaultTableCellRenderer
         		else{
         			previous = table.getValueAt(row - 1, column);
         		}
-                
-                
-                cell.setBackground(getColor(cell, Integer.parseInt(temp[6])));
 
+                cell.setBackground(getColor(cell, Integer.parseInt(temp[6])));
+                for(int i=0; i<MainFrame.Todo.length;i++){		//
+        			if(value.equals(MainFrame.Todo[i][0])){
+        				if(MainFrame.Todo[i][7].equals("1")){
+        					cell.setBackground(Color.red);
+        				}
+        			}
+                }				//
                 if (value.equals(previous))
                 {
                     setText("");
@@ -53,19 +58,31 @@ public class SubjectTableRenderer extends DefaultTableCellRenderer
 		switch(num){
 		
 		case 0:
-			return Color.gray;
+			return Color.LIGHT_GRAY;
 		case 1:
-			return Color.green;
+			//return Color.green;
+			return Color.LIGHT_GRAY;
+
 		case 2:
-			return Color.cyan;
+			return Color.LIGHT_GRAY;
+
+			//return Color.cyan;
 		case 3:
-			return Color.yellow;
+			return Color.LIGHT_GRAY;
+
+			//return Color.yellow;
 		case 4:
-			return Color.magenta;
+			return Color.LIGHT_GRAY;
+
+			//return Color.magenta;
 		case 5:
-			return Color.pink;
+			return Color.LIGHT_GRAY;
+
+			//return Color.pink;
 		case 6:
-			return Color.orange;
+			return Color.LIGHT_GRAY;
+
+			//return Color.orange;
 		}
 		
 		

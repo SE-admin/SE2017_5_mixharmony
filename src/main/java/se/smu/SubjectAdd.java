@@ -125,6 +125,12 @@ public class SubjectAdd extends JDialog {
 			if(temp[i].equals("")){
 				throw new ErrorException();
 			}
+	//		if(subject_name.getText().equals("과목명")){
+		//		throw new ErrorException();
+		//	}
+		//	if(professor_name.getText().equals("담당교수명")){
+		//		throw new ErrorException();
+		//	}
 		}
 
 	}

@@ -27,7 +27,7 @@ public class TodolistAdd extends JPanel{
    private JComboBox deadline_hour;
    private JComboBox deadline_min;
    private JCheckBox importance;
-   private String importance2 = "X";  
+   private int importance2 = 0;  
    public String finish_year = null;
    public String finish_month = null;
    public String finish_date = null;
@@ -139,7 +139,7 @@ public class TodolistAdd extends JPanel{
    void checkTheValue() throws ErrorException{
       String temp[] = {todo_name.getText(), deadline_year.getSelectedItem().toString(), deadline_month.getSelectedItem().toString(),
             deadline_date.getSelectedItem().toString(), deadline_hour.getSelectedItem().toString(), deadline_min.getSelectedItem().toString()};
-      
+
       for(int i=0; i<temp.length; i++){
          if(temp[i].equals("")){
             throw new ErrorException();
@@ -161,6 +161,7 @@ public class TodolistAdd extends JPanel{
       print_writer.print(deadline_date.getSelectedItem().toString()+"`");//4
       print_writer.print(deadline_hour.getSelectedItem().toString()+"`");//5
       print_writer.print(deadline_min.getSelectedItem().toString()+"`");//6
+      
       print_writer.print(importance2+"`");//7
       print_writer.print("X`");//8
       print_writer.print(finish_year+"`");//9
@@ -171,7 +172,7 @@ public class TodolistAdd extends JPanel{
         print_writer.close();
    }
    
-   void saveTodolist(String O) throws IOException{
+   void saveTodolist(int a) throws IOException{
        File f = new File("Todo_out.txt");
 
           // 파일 존재 여부 판단
@@ -188,7 +189,7 @@ public class TodolistAdd extends JPanel{
           print_writer.print(deadline_date.getSelectedItem().toString()+"`");//4
           print_writer.print(deadline_hour.getSelectedItem().toString()+"`");//5
           print_writer.print(deadline_min.getSelectedItem().toString()+"`");//6
-          print_writer.print(O+"`");//7
+          print_writer.print(a+"`");//7
           print_writer.print("X`");//8
           print_writer.print(finish_year+"`");//9
           print_writer.print(finish_month+"`");//10
@@ -200,11 +201,12 @@ public class TodolistAdd extends JPanel{
    }
    
    void addTodolist() throws IOException, ErrorException{
-      
+   
+
 
       if(importance.isSelected()){
 
-         saveTodolist("O");
+         saveTodolist(1);
       }
       else 
          saveTodolist();
