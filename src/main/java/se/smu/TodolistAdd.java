@@ -130,10 +130,11 @@ public class TodolistAdd extends JPanel{
       importance = new JCheckBox();
       importance.setBounds(140, 352, 20, 20);
       panel.add(importance);
-      
+      /*
       if(importance.isSelected()){
     	  importance2 = 1;  
       }
+      */
    }
    void checkTheValue() throws ErrorException{
       String temp[] = {todo_name.getText(), deadline_year.getSelectedItem().toString(), deadline_month.getSelectedItem().toString(),
@@ -188,7 +189,7 @@ public class TodolistAdd extends JPanel{
           print_writer.print(deadline_date.getSelectedItem().toString()+"`");//4
           print_writer.print(deadline_hour.getSelectedItem().toString()+"`");//5
           print_writer.print(deadline_min.getSelectedItem().toString()+"`");//6
-          print_writer.print(importance+"`");//7
+          print_writer.print(a+"`");//7
           print_writer.print("X`");//8
           print_writer.print(finish_year+"`");//9
           print_writer.print(finish_month+"`");//10
@@ -200,31 +201,20 @@ public class TodolistAdd extends JPanel{
    }
    
    void addTodolist() throws IOException, ErrorException{
-      Boolean finish_year_temp=false;
-      Boolean finish_month_temp=false;
-      Boolean finish_date_temp=false;
-            
-      /*if(finish_year.getSelectedItem().toString().equals("")){
-         finish_year_temp=true;
+   
+      if(importance.isSelected()){
+         
       }
       
-      if(finish_month.getSelectedItem().toString().equals("")){
-         finish_month_temp=true;
-      }
 
-      if(finish_date.getSelectedItem().toString().equals("")){   
-         finish_date_temp=true;
-      }*/
-      
-      if(finish_year_temp==true&&finish_month_temp==true&&finish_date_temp==true){
+      if(importance.isSelected()){
 
-         saveTodolist(0);
+         saveTodolist(1);
       }
-      else if(finish_year_temp==false&&finish_month_temp==false&&finish_date_temp==false){
+      else 
          saveTodolist();
-      }
-      else{
-         throw new ErrorException();
-      }
+      
+
+      
    }
 }

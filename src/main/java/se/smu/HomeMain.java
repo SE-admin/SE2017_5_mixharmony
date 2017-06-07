@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 import javax.swing.table.DefaultTableModel;
 
@@ -45,6 +46,19 @@ public class HomeMain extends JPanel{
 	 * Create the panel.
 	 */
 	public HomeMain() {
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 584, 56);
+		panel.setBackground(Color.pink);
+		add(panel);
+		panel.setLayout(null);
+		
+		JLabel todo_label = new JLabel("5조-PENTA");
+		todo_label.setFont(new Font("고딕체", Font.PLAIN, 30));
+		todo_label.setHorizontalAlignment(SwingConstants.CENTER);
+		todo_label.setBounds(220, 0, 160, 50);
+		panel.add(todo_label);
+		
 		//HomeMain 
 		setBackground(Color.pink);
 		setBounds(0, 0, 584, 630);

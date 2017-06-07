@@ -33,14 +33,14 @@ public class AllTodoListMain extends JPanel{
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 584, 56);
-		panel.setBackground(Color.WHITE);
+		panel.setBackground(Color.pink);
 		add(panel);
 		panel.setLayout(null);
 		
-		JLabel todo_label = new JLabel("전체 할 일 목록");
-		todo_label.setFont(new Font("바탕체", Font.PLAIN, 20));
+		JLabel todo_label = new JLabel("5조-PENTA");
+		todo_label.setFont(new Font("고딕체", Font.PLAIN, 30));
 		todo_label.setHorizontalAlignment(SwingConstants.CENTER);
-		todo_label.setBounds(0, 0, 159, 56);
+		todo_label.setBounds(220, 0, 160, 50);
 		panel.add(todo_label);
 		
 
