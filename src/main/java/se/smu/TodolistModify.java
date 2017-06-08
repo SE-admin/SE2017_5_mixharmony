@@ -33,7 +33,7 @@ public class TodolistModify extends JPanel {
     
    String todo_name_temp;
       
-public TodolistModify(String [] subject, String [] todo) throws IOException {
+   public TodolistModify(String [] subject, String [] todo) throws IOException {
       setBounds(0,0,420,480);
       setLayout(null);
       EtchedBorder eborder;
