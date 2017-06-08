@@ -209,10 +209,10 @@ public class MainFrame extends JFrame{
 				if(days>=0&&days<=1){
 					
 					try {
-						DDayPopup dialog = new DDayPopup(Todo[i]);
-						dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-						dialog.setLocation(250, 350);
-						dialog.setVisible(true);
+						//DDayPopup dialog = new DDayPopup(Todo[i]);
+						//dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+						//dialog.setLocation(250, 350);
+						//dialog.setVisible(true);
 						
 					} catch (Exception e) {
 						e.printStackTrace();

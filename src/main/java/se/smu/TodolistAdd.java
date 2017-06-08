@@ -172,8 +172,13 @@ public class TodolistAdd extends JPanel{
       print_writer.print(deadline_date.getSelectedItem().toString()+"`");//4
       print_writer.print(deadline_hour.getSelectedItem().toString()+"`");//5
       print_writer.print(deadline_min.getSelectedItem().toString()+"`");//6
-      
-      print_writer.print(importance2+"`");//7
+      if(importance.isSelected()){
+      print_writer.print("O"+"`");//7
+      }
+      else{
+      print_writer.print("X"+"`");  
+      }
+    	  
       print_writer.print("X`");//8
       print_writer.print(finish_year+"`");//9
       print_writer.print(finish_month+"`");//10
@@ -215,11 +220,11 @@ public class TodolistAdd extends JPanel{
    
 
 
-      if(importance.isSelected()){
+     // if(importance.isSelected()){
 
-         saveTodolist(1);
-      }
-      else 
+      //   saveTodolist(1);
+    //  }
+    //  else 
          saveTodolist();
       
 

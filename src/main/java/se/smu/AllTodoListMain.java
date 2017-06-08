@@ -86,7 +86,7 @@ public class AllTodoListMain extends JPanel implements ItemListener{
 		todo_table.setBounds(0, 82, 583, 575);
 		todo_table.setModel(new DefaultTableModel(column,row){
 			boolean[] columnEditables = new boolean[] {
-				false, false, false, false, false, false, false
+				false, false, false, false, false, false
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];

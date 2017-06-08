@@ -154,20 +154,7 @@ public class TodolistModify extends JPanel {
                 print_writer.print(deadline_hour.getSelectedItem().toString()+"`");//5
                 print_writer.print(deadline_min.getSelectedItem().toString()+"`");//6
                 
-                if(finish_year.equals("")&&finish_month.equals("")&&finish_date.equals("")){
-                   print_writer.print("0`");
-                   print_writer.print("0`");
-                   print_writer.print("0`");
-                    temp=1;
-                }
-                else if(!(finish_year.equals(""))&&!(finish_month.equals(""))&&!(finish_date.equals(""))){
-                   print_writer.print(finish_year+"`");
-                   print_writer.print(finish_month+"`");
-                   print_writer.print(finish_date+"`");
-                }
-                else{
-                   throw new ErrorException();
-                }
+
                 print_writer.print(importance2+"`");
                 
                 if(temp==1){

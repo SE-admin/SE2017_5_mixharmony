@@ -85,7 +85,7 @@ public class TodolistList extends JPanel{
          }
          */
          boolean[] columnEditables = new boolean[] {
-            false
+            false , false , false 
          };
          public boolean isCellEditable(int row, int column) {
             return columnEditables[column];
