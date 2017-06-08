@@ -139,7 +139,6 @@ public class TodolistModify extends JPanel {
       }
    }
    void modifyTodolist(String[] todo) throws IOException, ErrorException{
-      int temp =0;
       String old_todo[][] = MainFrame.Todo;
       PrintWriter print_writer = new PrintWriter(new FileWriter("Todo_out.txt"));
       
@@ -147,24 +146,23 @@ public class TodolistModify extends JPanel {
          for(int j=0; j<old_todo[i].length; j++){
             if(old_todo[i][1].equals(todo[1])){
                print_writer.print(subject_name+"`");
-               print_writer.print(todo_name.getText());
+               print_writer.print(todo_name.getText()+"`");
                print_writer.print(deadline_year.getSelectedItem().toString()+"`");//2
                 print_writer.print(deadline_month.getSelectedItem().toString()+"`");//3
                 print_writer.print(deadline_date.getSelectedItem().toString()+"`");//4
                 print_writer.print(deadline_hour.getSelectedItem().toString()+"`");//5
                 print_writer.print(deadline_min.getSelectedItem().toString()+"`");//6
-                
-
-                print_writer.print(importance2+"`");
-                
-                if(temp==1){
-                   print_writer.print("X`");
-                }
-                else{
-                   print_writer.print("O`");
-                }
-                
-                todo_name_temp = todo_name.getText();
+                if(importance.isSelected()){
+                    print_writer.print("O"+"`");//7
+                    }
+                    else{
+                    print_writer.print("X"+"`");  
+                    }
+                  	  
+                    print_writer.print("X`");//8
+                    print_writer.print(finish_year+"`");//9
+                    print_writer.print(finish_month+"`");//10
+                    print_writer.print(finish_date+"`");//11
                 break;
                 
             }
