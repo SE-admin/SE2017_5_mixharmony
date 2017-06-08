@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -31,8 +32,7 @@ public class MainFrame extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try { 
-			    	MainFrame frame = new MainFrame();
-					frame.setVisible(true);
+			    	starting();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -183,9 +183,51 @@ public class MainFrame extends JFrame{
 			}
 		
 			return null;
-		}
+	}
 	
+	static void findDDay(){
+		java.util.Calendar today = java.util.Calendar.getInstance();
+		java.util.Calendar dday = java.util.Calendar.getInstance();
+		
+		for(int i=0;i<Todo.length;i++){
+			if(Todo[i][8].equals("O")){
+				continue;
+			}
+			else{
+				
+				long temp;
+				int todo_year=Integer.parseInt(Todo[i][2]);
+				int todo_month=Integer.parseInt(Todo[i][3]);
+				int todo_date=Integer.parseInt(Todo[i][4]);
+				
+				dday.set(todo_year, todo_month-1, todo_date);
+				
+				temp = dday.getTimeInMillis()-today.getTimeInMillis();
+				
+				int days = (int)(temp/(24*60*60*1000));
+				
+				if(days>=0&&days<=1){
+					
+					try {
+						DDayPopup dialog = new DDayPopup(Todo[i]);
+						dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+						dialog.setLocation(250, 350);
+						dialog.setVisible(true);
+						
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					
+					
+				}
+				
+			}
+		}	
+	}
 	
-	
-	
+	static void starting(){
+		MainFrame frame = new MainFrame();
+		frame.setVisible(true);
+		findDDay();
+	}
 }

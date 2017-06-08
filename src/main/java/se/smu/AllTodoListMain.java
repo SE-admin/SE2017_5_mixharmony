@@ -148,14 +148,14 @@ public class AllTodoListMain extends JPanel implements ItemListener{
 		Filter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
-				AllTodoListMain2 Test1 = new AllTodoListMain2();
+				/*AllTodoListMain2 Test1 = new AllTodoListMain2();
 				
 			
 				MainFrame.main_panel.removeAll();
 				MainFrame.main_panel.add(Test1);
 				
 				Test1.revalidate();
-				Test1.repaint();
+				Test1.repaint();*/
 				}
 				catch (NullPointerException e1){
 					e1.getMessage();

@@ -180,7 +180,7 @@ public class TodolistAdd extends JPanel{
       print_writer.print(finish_date+"`");//11
       print_writer.println();
       
-        print_writer.close();
+      print_writer.close();
    }
    
    void saveTodolist(int a) throws IOException{
