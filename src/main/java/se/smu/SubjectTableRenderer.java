@@ -33,7 +33,7 @@ public class SubjectTableRenderer extends DefaultTableCellRenderer
                 cell.setBackground(getColor(cell, Integer.parseInt(temp[6])));
                 for(int i=0; i<MainFrame.Todo.length;i++){		//
         			if(value.equals(MainFrame.Todo[i][0])){
-        				if(MainFrame.Todo[i][7].equals("1")){
+        				if(MainFrame.Todo[i][7].equals("O")){
         					cell.setBackground(Color.red);
         				}
         			}
