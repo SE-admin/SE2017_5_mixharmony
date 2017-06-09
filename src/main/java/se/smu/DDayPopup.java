@@ -19,7 +19,7 @@ public class DDayPopup extends JDialog {
 	
 	public DDayPopup(String[] todo){
 		setAlwaysOnTop(true);
-		setBounds(100,100,319,190);
+		setBounds(100,100,319,240);
 		setModal(true);
 		setLocationRelativeTo(MainFrame.main_panel);
 		getContentPane().setLayout(new BorderLayout());
@@ -44,7 +44,7 @@ public class DDayPopup extends JDialog {
 				dispose();
 			}
 		});
-		confirm.setBounds(80,90,150,60);
+		confirm.setBounds(80,120,150,60);
 		contentPanel.add(confirm);
 		confirm.setActionCommand("확인");
 		getRootPane().setDefaultButton(confirm);
