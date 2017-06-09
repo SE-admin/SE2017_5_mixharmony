@@ -18,15 +18,15 @@ import java.awt.Color;
 public class TodolistComplete extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-		private JComboBox finish_year;
-		private JComboBox finish_month;
-		private JComboBox finish_date;
+		private JComboBox finish_year=null;
+		private JComboBox finish_month=null;
+		private JComboBox finish_date=null;
 	/**
 	 * Create the dialog.
 	 */
 	public TodolistComplete(String [] todo) throws IOException {
 		setAlwaysOnTop(true);
-		setBounds(100, 100, 319, 190);
+		setBounds(100, 100, 350, 190);
 		setModal(true);
 		setLocationRelativeTo(MainFrame.main_panel);
 		getContentPane().setLayout(new BorderLayout());
@@ -44,16 +44,19 @@ public class TodolistComplete extends JDialog {
 		TodolistContents todolist_contents = new TodolistContents();
 		
 		finish_year = new JComboBox(todolist_contents.year);
-		finish_year.setBounds(0, 40,103,50);
+		finish_year.setBounds(8, 40,103,50);
+		finish_year.setSelectedItem("hahaha");
 		contentPanel.add(finish_year);
+
 		
 		finish_month = new JComboBox(todolist_contents.month);
-		finish_month.setBounds(110, 40,100,50);
+		finish_month.setBounds(118, 40,100,50);
 		contentPanel.add(finish_month);
 		
 		finish_date = new JComboBox(todolist_contents.date);
-		finish_date.setBounds(217, 40,100,50);
+		finish_date.setBounds(228, 40,100,50);
 		contentPanel.add(finish_date);
+		
 		
 		JButton cancel = new JButton("");
 		cancel.setIcon(new ImageIcon(TodolistComplete.class.getResource("/img/cancel.PNG")));
@@ -65,7 +68,7 @@ public class TodolistComplete extends JDialog {
 			}
 		});
 		cancel.setBorder(null);
-		cancel.setBounds(74, 100, 147, 47);
+		cancel.setBounds(168, 100, 147, 47);
 		contentPanel.add(cancel);
 		
 		JButton confirm = new JButton("");
@@ -78,7 +81,7 @@ public class TodolistComplete extends JDialog {
 			}
 		});
 		confirm.setBorder(null);
-		confirm.setBounds(5, 110, 152, 47);
+		confirm.setBounds(18, 100, 152, 47);
 		contentPanel.add(confirm);
 		
 	}

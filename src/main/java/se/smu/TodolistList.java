@@ -47,26 +47,26 @@ public class TodolistList extends JPanel{
       panel.add(todo_label);
       
       Object[][] column =   {
-            {"1"," ",null,null},
-            {"2"," ",null,null},
-            {"3"," ",null,null},
-            {"4"," ",null,null},
-            {"5"," ",null,null},
-            {"6"," ",null,null},
-            {"7"," ",null,null},
-            {"8"," ",null,null},
-            {"9"," ",null,null},
-            {"10"," ",null,null},
-            {"11"," ",null,null},
-            {"12"," ",null,null},
-            {"13"," ",null,null},
-            {"14"," ",null,null},
-            {"15"," ",null,null},
-            {"16"," ",null,null}
+            {"1",null,null},
+            {"2",null,null},
+            {"3",null,null},
+            {"4",null,null},
+            {"5",null,null},
+            {"6",null,null},
+            {"7",null,null},
+            {"8",null,null},
+            {"9",null,null},
+            {"10",null,null},
+            {"11",null,null},
+            {"12",null,null},
+            {"13",null,null},
+            {"14",null,null},
+            {"15",null,null},
+            {"16",null,null}
          };
    
       String[] row = {
-         "", "할 일", "마감 기한","중요도"
+         "", "할 일", "마감 기한"
       };
       
    
@@ -104,7 +104,6 @@ public class TodolistList extends JPanel{
       
       todolist_table.setRowHeight(42);
       todolist_table.getColumnModel().getColumn(0).setMaxWidth(40);
-      todolist_table.getColumnModel().getColumn(3).setMaxWidth(50);
       
       
       
@@ -149,7 +148,7 @@ public class TodolistList extends JPanel{
             int col = todolist_table.getSelectedColumn();
             String value = (String) todolist_table.getValueAt(row, col);
             
-            if(value.equals(" ")){
+            if(value.equals("")){
                
             }
             else{
@@ -175,42 +174,17 @@ public class TodolistList extends JPanel{
       panel.add(edit);
       
       
-      //      
+      //삭제
       JButton del = new JButton("");
       del.addActionListener(new ActionListener() {
-          public void actionPerformed(ActionEvent e) {
-              int row = todolist_table.getSelectedRow();
-              int col = todolist_table.getSelectedColumn();
-              String value = (String) todolist_table.getValueAt(row, col);
-              TodoList_Del tododel;
-              try {
-             	DelPopup2 deldialog = new DelPopup2();
-         		deldialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-         		deldialog.setVisible(true);
- 				tododel = new TodoList_Del(MainFrame.findList(value, MainFrame.Todo));
- 		           
- 		         
- 	             TodolistList todolist_list = new TodolistList(subject);
- 	             SubjectOption.option_panel.removeAll();
- 	             SubjectOption.option_panel.add(todolist_list);
- 	            
- 	             todolist_list.revalidate();
- 	             todolist_list.repaint();  
- 	       
- 	         
+         public void actionPerformed(ActionEvent arg0) {
+            
    
- 				tododel.repaint();//
- 				
- 			} catch (IOException e1) {
- 				// TODO Auto-generated catch block
- 				e1.printStackTrace();
- 			}
-             
-
-             
-          }
-       });
-
+            
+         
+            
+         }
+      });
       del.setIcon(new ImageIcon(MainFrame.class.getResource("/icon/todo_del.PNG")));
       del.setBorder(null);
       del.setBackground(Color.WHITE);
@@ -230,10 +204,12 @@ public class TodolistList extends JPanel{
                 
              }
              else{
-                TodolistComplete comp;
+                
                 try{
-                   comp = new TodolistComplete(MainFrame.findList(value, MainFrame.Todo));
-           
+                	TodolistComplete comp = new TodolistComplete(MainFrame.findList(value, MainFrame.Todo));
+                	comp.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+                	comp.setLocation(250, 350);
+                	comp.setVisible(true);           
                 }
                 catch(IOException e1){
                    e1.printStackTrace();
@@ -260,8 +236,7 @@ public class TodolistList extends JPanel{
          
          if(MainFrame.Todo[i][0].equals(subject_name)){
             column[temp][1]=MainFrame.Todo[i][1];
-            column[temp][2]=MainFrame.Todo[i][2]+"."+MainFrame.Todo[i][3]+"."+MainFrame.Todo[i][4]+"  "+MainFrame.Todo[i][5]+":"+MainFrame.Todo[i][6];
-            column[temp][3]=MainFrame.Todo[i][7];
+            column[temp][2]=MainFrame.Todo[i][2]+"."+MainFrame.Todo[i][3]+"."+MainFrame.Todo[i][4];
             temp++;
          }
       }
