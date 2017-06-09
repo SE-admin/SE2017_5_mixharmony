@@ -195,10 +195,23 @@ public class TodolistList extends JPanel{
       JButton done = new JButton("");
       done.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent arg0) {
-            
-      
-         
-            
+             int row = todolist_table.getSelectedRow();
+             int col = todolist_table.getSelectedColumn();
+             String value = (String) todolist_table.getValueAt(row, col);
+             
+             if(value.equals("")){
+                
+             }
+             else{
+                TodolistComplete comp;
+                try{
+                   comp = new TodolistComplete(MainFrame.findList(value, MainFrame.Todo));
+           
+                }
+                catch(IOException e1){
+                   e1.printStackTrace();
+                }
+             }          
          }
       });
       done.setIcon(new ImageIcon(MainFrame.class.getResource("/icon/todo_done.PNG")));
