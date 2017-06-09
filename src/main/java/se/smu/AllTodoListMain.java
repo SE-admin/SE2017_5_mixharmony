@@ -139,6 +139,8 @@ public class AllTodoListMain extends JPanel implements ItemListener{
 			
 			column[i][2] = Todo[i][7];
 			column[i][4] = Todo[i][8];
+			column[i][5] = Todo[i][9]+"/"+Todo[i][10]+"/"+Todo[i][11];
+			
 			
 		}
 	}

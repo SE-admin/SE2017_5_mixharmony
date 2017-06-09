@@ -105,6 +105,7 @@ public class TodolistList extends JPanel{
       
       todolist_table.setRowHeight(42);
       todolist_table.getColumnModel().getColumn(0).setMaxWidth(40);
+      todolist_table.getColumnModel().getColumn(3).setMaxWidth(50);
       
       
       
@@ -231,7 +232,7 @@ public class TodolistList extends JPanel{
              else{
                 
                 try{
-                	TodolistComplete comp = new TodolistComplete(MainFrame.findList(value, MainFrame.Todo));
+                	TodolistComplete comp = new TodolistComplete(subject, MainFrame.findList(value, MainFrame.Todo));
                 	comp.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
                 	comp.setLocation(250, 350);
                 	comp.setVisible(true);           
@@ -263,7 +264,7 @@ public class TodolistList extends JPanel{
           if(MainFrame.Todo[i][0].equals(subject_name)&&MainFrame.Todo[i][8].equals("X"))
           {
              column[temp][1]=MainFrame.Todo[i][1];
-             column[temp][2]=MainFrame.Todo[i][2]+"."+MainFrame.Todo[i][3]+"."+MainFrame.Todo[i][4]+"   "+MainFrame.Todo[i][5]+MainFrame.Todo[i][6];
+             column[temp][2]=MainFrame.Todo[i][2]+"."+MainFrame.Todo[i][3]+"."+MainFrame.Todo[i][4]+"   "+MainFrame.Todo[i][5]+":"+MainFrame.Todo[i][6];
              column[temp][3]=MainFrame.Todo[i][7];
              temp++;
 
