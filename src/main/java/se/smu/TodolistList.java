@@ -10,6 +10,7 @@ import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -173,17 +174,42 @@ public class TodolistList extends JPanel{
       panel.add(edit);
       
       
-      //삭제
+      //      
       JButton del = new JButton("");
       del.addActionListener(new ActionListener() {
-         public void actionPerformed(ActionEvent arg0) {
-            
+          public void actionPerformed(ActionEvent e) {
+              int row = todolist_table.getSelectedRow();
+              int col = todolist_table.getSelectedColumn();
+              String value = (String) todolist_table.getValueAt(row, col);
+              TodoList_Del tododel;
+              try {
+             	DelPopup2 deldialog = new DelPopup2();
+         		deldialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+         		deldialog.setVisible(true);
+ 				tododel = new TodoList_Del(MainFrame.findList(value, MainFrame.Todo));
+ 		           
+ 		           //?뿬湲곗꽌遺??꽣
+ 	             TodolistList todolist_list = new TodolistList(subject);
+ 	             SubjectOption.option_panel.removeAll();
+ 	             SubjectOption.option_panel.add(todolist_list);
+ 	            
+ 	             todolist_list.revalidate();
+ 	             todolist_list.repaint();  
+ 	            //?뿬湲?
+ 	         
    
-            
-         
-            
-         }
-      });
+ 				tododel.repaint();//
+ 				
+ 			} catch (IOException e1) {
+ 				// TODO Auto-generated catch block
+ 				e1.printStackTrace();
+ 			}
+             
+
+             
+          }
+       });
+
       del.setIcon(new ImageIcon(MainFrame.class.getResource("/icon/todo_del.PNG")));
       del.setBorder(null);
       del.setBackground(Color.WHITE);

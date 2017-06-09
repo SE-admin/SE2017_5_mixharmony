@@ -11,7 +11,7 @@ public class TodoList_Del{
 
 	delete_subject(Todo);
 	MainFrame.Todo=MainFrame.get_Todo();
-	repaint();
+	//repaint();
 }
 
 	void delete_subject(String[] Todo) throws IOException{
@@ -36,8 +36,8 @@ public class TodoList_Del{
 	void repaint(){
 		AllTodoListMain TodoMain = new AllTodoListMain();
 		
-		MainFrame.main_panel.removeAll();
-		MainFrame.main_panel.add(TodoMain);
+		//MainFrame.main_panel.removeAll();
+		//MainFrame.main_panel.add(TodoMain);
 			
 			
 		TodoMain.revalidate();
