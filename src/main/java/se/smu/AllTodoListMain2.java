@@ -26,7 +26,7 @@ public class AllTodoListMain2 extends JPanel implements ItemListener{
 	
 	private String choice;
 	private JTable todo_table;
-	
+	private JPanel panel;
 	/**
 	 * Create the panel.
 	 */
@@ -38,7 +38,7 @@ public class AllTodoListMain2 extends JPanel implements ItemListener{
 		
 		
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setBounds(0, 0, 584, 82);
 		panel.setBackground(Color.pink);
 		add(panel);
@@ -52,8 +52,8 @@ public class AllTodoListMain2 extends JPanel implements ItemListener{
 		panel.add(todo_label);
 		
 
-		int a;
-		int b=0;
+		int a=0;
+		int b;
 		
 		if(MainFrame.Todo.length==0){
 			a=1;
@@ -61,8 +61,11 @@ public class AllTodoListMain2 extends JPanel implements ItemListener{
 		}
 		
 		else{
-			a=MainFrame.Todo.length;
-			b=b=MainFrame.Todo[0].length;
+			for(int i=0;i<MainFrame.Todo.length;i++){
+			if(MainFrame.Todo[i][8].equals("X"))
+				a++;
+			}
+			b=MainFrame.Todo[0].length;
 				
 		}
 		
@@ -133,10 +136,12 @@ public class AllTodoListMain2 extends JPanel implements ItemListener{
 
 			column[b][3] = Todo[i][2]+"/"+Todo[i][3]+"/"+Todo[i][4]+"  "+Todo[i][5]+":"+Todo[i][6];
 			
-			if(Todo[i][5].equals(null))
+			if(Todo[i][5].equals(null)){
 			column[b][4] = null;
-			else
+			}
+			else{
 				column[b][4] = Todo[i][9]+"/"+Todo[i][10]+"/"+Todo[i][11];	
+			}
 			
 			
 			column[b][2] = Todo[i][7];
@@ -169,9 +174,9 @@ public class AllTodoListMain2 extends JPanel implements ItemListener{
 		});
 		
 		Filter.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		Filter.setBounds(230,50,150,30);
+		Filter.setBounds(220,50,150,30);
 		Filter.setVisible(true);
-		add(Filter);
+		panel.add(Filter);
 	}
 	
 	@Override

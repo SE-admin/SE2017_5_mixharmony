@@ -26,7 +26,7 @@ public class AllTodoListMain extends JPanel implements ItemListener{
 	
 	private String choice;
 	private JTable todo_table;
-	
+	private JPanel panel;
 	/**
 	 * Create the panel.
 	 */
@@ -38,7 +38,7 @@ public class AllTodoListMain extends JPanel implements ItemListener{
 		
 		
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setBounds(0, 0, 584, 82);
 		panel.setBackground(Color.pink);
 		add(panel);
@@ -148,14 +148,14 @@ public class AllTodoListMain extends JPanel implements ItemListener{
 		Filter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
-				/*AllTodoListMain2 Test1 = new AllTodoListMain2();
+				AllTodoListMain2 Test1 = new AllTodoListMain2();
 				
 			
 				MainFrame.main_panel.removeAll();
 				MainFrame.main_panel.add(Test1);
 				
 				Test1.revalidate();
-				Test1.repaint();*/
+				Test1.repaint();
 				}
 				catch (NullPointerException e1){
 					e1.getMessage();
@@ -166,9 +166,9 @@ public class AllTodoListMain extends JPanel implements ItemListener{
 		});
 		
 		Filter.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		Filter.setBounds(230,50,150,30);
+		Filter.setBounds(220,50,150,30);
 		Filter.setVisible(true);
-		add(Filter);
+		panel.add(Filter);
 	}
 	
 	@Override
