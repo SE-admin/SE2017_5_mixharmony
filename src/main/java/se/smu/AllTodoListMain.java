@@ -71,7 +71,7 @@ public class AllTodoListMain extends JPanel implements ItemListener{
 		
 		
 		try {
-			MainFrame.Todo=MainFrame.get_Todo();
+			MainFrame.Todo=MainFrame.getTodo();
 			paintToDoTable(MainFrame.Todo,column);
 			
 		} catch (IOException e) {
@@ -139,9 +139,12 @@ public class AllTodoListMain extends JPanel implements ItemListener{
 			
 			column[i][2] = Todo[i][7];
 			column[i][4] = Todo[i][8];
-			column[i][5] = Todo[i][9]+"/"+Todo[i][10]+"/"+Todo[i][11];
+			if(Todo[i][8].equals("X")){
 			
-			
+			}
+			else{
+				column[i][5] = Todo[i][9]+"/"+Todo[i][10]+"/"+Todo[i][11];
+			}
 		}
 	}
 	
@@ -150,7 +153,7 @@ public class AllTodoListMain extends JPanel implements ItemListener{
 		Filter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
-				AllTodoListMain2 Test1 = new AllTodoListMain2();
+				AllTodoListMainHiddener Test1 = new AllTodoListMainHiddener();
 				
 			
 				MainFrame.main_panel.removeAll();

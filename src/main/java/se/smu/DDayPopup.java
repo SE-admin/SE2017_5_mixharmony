@@ -48,7 +48,7 @@ public class DDayPopup extends JDialog {
 		contentPanel.add(confirm);
 		confirm.setActionCommand("확인");
 		getRootPane().setDefaultButton(confirm);
-		confirm.setIcon(new ImageIcon(DDayPopup.class.getResource("/icon/ok_small.PNG")));
+		confirm.setIcon(new ImageIcon(DDayPopup.class.getResource("/icon/ok.PNG")));
 		confirm.setBackground(Color.WHITE);
 		confirm.setBorder(null);
 		

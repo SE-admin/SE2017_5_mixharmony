@@ -51,7 +51,7 @@ public class SubjectOption extends JPanel{
             	//여기서부터 내가고친부
 
             	try{
-            		Del_Popup dialog = new Del_Popup(0, subject);
+            		SubjectDeletePopup dialog = new SubjectDeletePopup(0, subject);
             		dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
             		dialog.setVisible(true);
 					SubjectDelete subject_del = new SubjectDelete(subject);

@@ -22,7 +22,7 @@ import javax.swing.table.TableRowSorter;
 
 import se.smu.MainFrame;
 
-public class AllTodoListMain2 extends JPanel implements ItemListener{
+public class AllTodoListMainHiddener extends JPanel implements ItemListener{
 	
 	private String choice;
 	private JTable todo_table;
@@ -30,7 +30,7 @@ public class AllTodoListMain2 extends JPanel implements ItemListener{
 	/**
 	 * Create the panel.
 	 */
-	public AllTodoListMain2() {
+	public AllTodoListMainHiddener() {
 		setBackground(Color.WHITE);
 		setBounds(0, 0, 584, 628);
 		setLayout(null);
@@ -76,7 +76,7 @@ public class AllTodoListMain2 extends JPanel implements ItemListener{
 		
 		
 		try {
-			MainFrame.Todo=MainFrame.get_Todo();
+			MainFrame.Todo=MainFrame.getTodo();
 			paintToDoTable(MainFrame.Todo,column);
 			
 		} catch (IOException e) {
@@ -146,7 +146,12 @@ public class AllTodoListMain2 extends JPanel implements ItemListener{
 			
 			column[b][2] = Todo[i][7];
 			column[b][4] = Todo[i][8];
-			column[b][5] = Todo[i][9]+"/"+Todo[i][10]+"/"+Todo[i][11];
+			if(Todo[i][8].equals("X")){
+				
+			}
+			else{
+				column[i][5] = Todo[i][9]+"/"+Todo[i][10]+"/"+Todo[i][11];
+			}
 			b++;
 			}
 		}

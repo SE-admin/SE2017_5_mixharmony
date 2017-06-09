@@ -59,9 +59,9 @@ public class TodolistAdd extends JPanel{
             try{
                hide();
                checkTheValue();
-               checkTheValue2();
+      
                addTodolist();
-               MainFrame.Todo = MainFrame.get_Todo();
+               MainFrame.Todo = MainFrame.getTodo();
                
                TodolistList todolist_list = new TodolistList(subject);
                SubjectOption.option_panel.removeAll();
@@ -140,23 +140,23 @@ public class TodolistAdd extends JPanel{
    void checkTheValue() throws ErrorException{
       String temp[] = {todo_name.getText(), deadline_year.getSelectedItem().toString(), deadline_month.getSelectedItem().toString(),
             deadline_date.getSelectedItem().toString(), deadline_hour.getSelectedItem().toString(), deadline_min.getSelectedItem().toString()};
-
+      String temp1 = deadline_month.getSelectedItem().toString();
+      String temp2 = deadline_date.getSelectedItem().toString();
+      
+      if(temp1.equals("02")&&temp2.equals("31")||temp1.equals("02")&&temp2.equals("30")||
+     		 temp1.equals("04")&&temp2.equals("31")||temp1.equals("06")&&temp2.equals("31")||
+     		 temp1.equals("08")&&temp2.equals("31")||temp1.equals("09")&&temp2.equals("31")||
+     		 temp1.equals("11")&&temp2.equals("31")){
+         throw new ErrorException();
+      }
       for(int i=0; i<temp.length; i++){
          if(temp[i].equals("")){
             throw new ErrorException();
          }
+         
       }
    }
-   void checkTheValue2() throws ErrorException{
-	      String temp1 = deadline_month.getSelectedItem().toString();
-	      String temp2 = deadline_date.getSelectedItem().toString();
-	      
-	
-	         if(temp1.equals("2")&&temp2.equals("31")){
-	            throw new ErrorException();
-	         }
-	      
-	   }
+
    void saveTodolist() throws IOException{
       File f = new File("Todo_out.txt");
       

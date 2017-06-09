@@ -45,7 +45,7 @@ public class MainFrame extends JFrame{
 		try {
 			subject = getSubject();
 			
-			Todo = get_Todo();
+			Todo = getTodo();
 			
 			
 		} catch (IOException e) {
@@ -136,7 +136,7 @@ public class MainFrame extends JFrame{
 	}
 	
 	//todolist 불러오기
-	public static String[][] get_Todo() throws IOException{
+	public static String[][] getTodo() throws IOException{
 		
 		 File f = new File("Todo_out.txt");
 

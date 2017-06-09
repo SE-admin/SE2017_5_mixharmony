@@ -25,21 +25,21 @@ public class HomeMain extends JPanel{
 	private JTable table;
 	Object[][] column = {
 			
-			{new Integer(8), "", "", "", "", ""},
-			{new Integer(9), "", "", "", "", ""},
-			{new Integer(10), "", "", "", "", ""},
-			{new Integer(11), "", "", "", "", ""},
-			{new Integer(12), "", "", "", "", ""},
-			{new Integer(13), "", "", "", "", ""},
-			{new Integer(14), "", "", "", "", ""},
-			{new Integer(15), "", "", "", "", ""},
-			{new Integer(16), "", "", "", "", ""},
-			{new Integer(17), "", "", "", "", ""},
-			{new Integer(18), "", "", "", "", ""},
-			{new Integer(19), "", "", "", "", ""},
-			{new Integer(20), "", "", "", "", ""},
-			{new Integer(21), "", "", "", "", ""},
-			{new Integer(22), "", "", "", "", ""},
+			{new Integer(8), " ", " ", " ", " ", " "},
+			{new Integer(9), " ", " ", " ", " ", " "},
+			{new Integer(10), " ", " ", " ", " ", " "},
+			{new Integer(11), " ", " ", " ", " ", " "},
+			{new Integer(12), " ", " ", " ", " ", " "},
+			{new Integer(13), " ", " ", " ", " ", " "},
+			{new Integer(14), " ", " ", " ", " ", " "},
+			{new Integer(15), " ", " ", " ", " ", " "},
+			{new Integer(16), " ", " ", " ", " ", " "},
+			{new Integer(17), " ", " ", " ", " ", " "},
+			{new Integer(18), " ", " ", " ", " ", " "},
+			{new Integer(19), " ", " ", " ", " ", " "},
+			{new Integer(20), " ", " ", " ", " ", " "},
+			{new Integer(21), " ", " ", " ", " ", " "},
+			{new Integer(22), " ", " ", " ", " ", " "},
 		};
 	
 	/**
@@ -65,7 +65,7 @@ public class HomeMain extends JPanel{
 		setLayout(null);
 
 			String[] row = {
-				"", "월", "화", "수", "목", "금"
+				" ", "월", "화", "수", "목", "금"
 			};
 		
 			
@@ -138,9 +138,14 @@ public class HomeMain extends JPanel{
 				int row = table.getSelectedRow();
 				int col = table.getSelectedColumn();
 				String value = (String) table.getValueAt(row, col);
-				
+				if(value.equals(" ")){
+					
+				}
+				else
+				{
 				if(e.getModifiers() == MouseEvent.BUTTON3_MASK){				//+++//
 					SubjectOption subject_option = new SubjectOption(MainFrame.findList(value, MainFrame.subject));				///+++//
+				}
 				}
 			}
 		});
@@ -158,7 +163,7 @@ public class HomeMain extends JPanel{
 			int start_time = Integer.parseInt(temp1[0]);
 			int end_time =  Integer.parseInt(temp2[0]);
 			
-			int days = get_day(subject[i][2]);
+			int days = getDay(subject[i][2]);
 			
 			column[start_time-8][days]=subject[i][0];
 			for(int j = start_time-7;j<end_time-8;j++){
@@ -168,7 +173,7 @@ public class HomeMain extends JPanel{
 		}
 	}
 	
-	int get_day(String day){
+	int getDay(String day){
 		
 		int day_no=0;
 		

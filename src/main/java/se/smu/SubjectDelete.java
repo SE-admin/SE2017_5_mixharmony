@@ -52,7 +52,7 @@ public class SubjectDelete {
 				}
 			}
 		pw.close();
-		MainFrame.Todo=MainFrame.get_Todo();
+		MainFrame.Todo=MainFrame.getTodo();
 	}
 	
 	void repaint(){

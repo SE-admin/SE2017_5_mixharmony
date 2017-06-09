@@ -1,4 +1,6 @@
-db`sdfsdfsdf`2017`06`10`01`03`O`O`2017`08`03`
-db`afsdsfsfsf`2018`04`9`02`10`X`O`null`null`null`
-db`9089898`2017`6`10`20`12`O`O`null`null`null`
+﻿db`sdfsdfsdf`2017`06`10`01`03`O`O`2017`08`03`
+db`afsdsfsfsf`2018`04`9`02`10`X`X`null`null`null`
 db`냐냐`2017`6`9`23`30`X`O`2017`6`09`
+db`dfhhwdtsh`2017`04`31`21`50`X`X`null`null`null`
+db`dhgwh`2017`02`31`21`51`X`X`null`null`null`
+asdasdf`cghjfdjd`2017`02`31`21`53`X`X`null`null`null`

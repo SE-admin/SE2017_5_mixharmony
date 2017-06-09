@@ -81,7 +81,7 @@ public class TodolistComplete extends JDialog {
       
       
       JButton cancel = new JButton("");
-      cancel.setIcon(new ImageIcon(TodolistComplete.class.getResource("/img/cancel.PNG")));
+      cancel.setIcon(new ImageIcon(TodolistComplete.class.getResource("/icon/cancel.PNG")));
       cancel.setBackground(Color.WHITE);
       cancel.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
@@ -94,7 +94,7 @@ public class TodolistComplete extends JDialog {
       contentPanel.add(cancel);
       
       JButton confirm = new JButton("");
-      confirm.setIcon(new ImageIcon(TodolistComplete.class.getResource("/img/confirm.PNG")));
+      confirm.setIcon(new ImageIcon(TodolistComplete.class.getResource("/icon/ok.PNG")));
       confirm.setBackground(Color.WHITE);
       confirm.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
@@ -121,7 +121,15 @@ public class TodolistComplete extends JDialog {
    void checkTheValue() throws ErrorException{
          String temp[] = {todo_name, deadline_year, deadline_month,
          deadline_date, deadline_hour, deadline_min};
-               
+         String temp1 = finish_month.getSelectedItem().toString();
+         String temp2 = finish_date.getSelectedItem().toString();
+         
+         if(temp1.equals("02")&&temp2.equals("31")||temp1.equals("02")&&temp2.equals("30")||
+        		 temp1.equals("04")&&temp2.equals("31")||temp1.equals("06")&&temp2.equals("31")||
+        		 temp1.equals("08")&&temp2.equals("31")||temp1.equals("09")&&temp2.equals("31")||
+        		 temp1.equals("11")&&temp2.equals("31")){
+            throw new ErrorException();
+         }      
          for(int i=0; i<temp.length; i++){
             if(temp[i].equals("")){
             throw new ErrorException();
@@ -158,6 +166,6 @@ public class TodolistComplete extends JDialog {
          }
          print_writer.close();
       
-         MainFrame.Todo = MainFrame.get_Todo();      
+         MainFrame.Todo = MainFrame.getTodo();      
       }
 }

@@ -192,7 +192,7 @@ public class SubjectAdd extends JDialog {
 
 		
 			for(int i = start_time-8;i<end_time-8;i++){
-				if(!home.column[i][day_no].equals("")){
+				if(!home.column[i][day_no].equals(" ")){
 					temp=0;
 					throw new ErrorException();
 				}

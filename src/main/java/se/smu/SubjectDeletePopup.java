@@ -14,13 +14,13 @@ import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
-public class DelPopup2 extends JDialog {
+public class SubjectDeletePopup extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	/**
 	 * Create the dialog.
 	 */
-	public DelPopup2() {
+	public SubjectDeletePopup(int choice, String[] list) {
 		setAlwaysOnTop(true);
 		setBounds(100, 100, 319, 190);
 		setModal(true);
@@ -51,13 +51,29 @@ public class DelPopup2 extends JDialog {
 //		contentPanel.add(cancel);
 		
 		JButton confirm = new JButton("");
-		confirm.setIcon(new ImageIcon(Del_Popup.class.getResource("/img/confirm.PNG")));
+		confirm.setIcon(new ImageIcon(SubjectDeletePopup.class.getResource("/icon/ok.PNG")));
 		confirm.setBackground(Color.WHITE);
 		confirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-
-		
+				switch(choice){
+				case 0:
+					try {
+						SubjectDelete del = new SubjectDelete(list);
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					break;
+				case 1:
+					try {
+						TodoListDelete del = new TodoListDelete(list);
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					break;
+				}
 				dispose();
 			}
 		});
@@ -67,4 +83,3 @@ public class DelPopup2 extends JDialog {
 		
 	}
 }
-

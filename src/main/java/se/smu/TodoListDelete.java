@@ -6,15 +6,15 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-public class TodoList_Del{
-	public TodoList_Del(String[] Todo) throws IOException{
+public class TodoListDelete{
+	public TodoListDelete(String[] Todo) throws IOException{
 
-	delete_subject(Todo);
-	MainFrame.Todo=MainFrame.get_Todo();
+	deleteSubject(Todo);
+	MainFrame.Todo=MainFrame.getTodo();
 	//repaint();
 }
 
-	void delete_subject(String[] Todo) throws IOException{
+	void deleteSubject(String[] Todo) throws IOException{
 		
 		String [][] old_Todo = MainFrame.Todo;
 		PrintWriter pw = new PrintWriter(new FileWriter("Todo_out.txt"));

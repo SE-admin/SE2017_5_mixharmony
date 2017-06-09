@@ -11,9 +11,9 @@ public class SubjectTableRenderer extends DefaultTableCellRenderer
     public Component getTableCellRendererComponent(JTable table, Object value, boolean   isSelected, boolean hasFocus, int row, int column) 
     { 
         Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column); 
-        if (! isSelected) //���� ���õ� ���� ������ �������� �ʰ� ���� ������ ��쿡��? �������� �����Ѵ�
+        if (! isSelected) 
         {
-        	if(value.equals("")){
+        	if(value.equals(" ")){
         		
         			cell.setBackground(Color.WHITE);
         		

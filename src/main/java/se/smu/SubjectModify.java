@@ -162,7 +162,7 @@ public class SubjectModify extends JPanel{
 		int day_no=getDays(day_of_subject.getSelectedItem().toString());
 		
 			for(int i = start_time-8;i<end_time-8;i++){
-				if(!home.column[i][day_no].equals("")){
+				if(!home.column[i][day_no].equals(" ")){
 					if(home.column[i][day_no].equals(old_subject[0])){
 						continue;
 					}

@@ -75,7 +75,7 @@ public class TodolistList extends JPanel{
       todolist_table= new JTable();      
       
       
-      get_Todo_name(column, subject[0]);
+      getTodoName(column, subject[0]);
       
       todolist_table.setModel(new DefaultTableModel(column,row) {
          Class[] columnTypes = new Class[] {
@@ -150,7 +150,7 @@ public class TodolistList extends JPanel{
             int col = todolist_table.getSelectedColumn();
             String value = (String) todolist_table.getValueAt(row, col);
             
-            if(value.equals("")){
+            if(value.equals(" ")){
                
             }
             else{
@@ -183,12 +183,12 @@ public class TodolistList extends JPanel{
               int row = todolist_table.getSelectedRow();
               int col = todolist_table.getSelectedColumn();
               String value = (String) todolist_table.getValueAt(row, col);
-              TodoList_Del tododel;
+              TodoListDelete tododel;
               try {
-             	DelPopup2 deldialog = new DelPopup2();
+             	TodoDeletePopup deldialog = new TodoDeletePopup();
          		deldialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
          		deldialog.setVisible(true);
- 				tododel = new TodoList_Del(MainFrame.findList(value, MainFrame.Todo));
+ 				tododel = new TodoListDelete(MainFrame.findList(value, MainFrame.Todo));
  		           
  		  
  	             TodolistList todolist_list = new TodolistList(subject);
@@ -226,7 +226,7 @@ public class TodolistList extends JPanel{
              int col = todolist_table.getSelectedColumn();
              String value = (String) todolist_table.getValueAt(row, col);
              
-             if(value.equals("")){
+             if(value.equals(" ")){
                 
              }
              else{
@@ -253,7 +253,7 @@ public class TodolistList extends JPanel{
    }
 
 
-   void get_Todo_name(Object [][] column, String subject_name){
+   void getTodoName(Object [][] column, String subject_name){
       
       
       //System.out.println("진입");
@@ -264,7 +264,7 @@ public class TodolistList extends JPanel{
           if(MainFrame.Todo[i][0].equals(subject_name)&&MainFrame.Todo[i][8].equals("X"))
           {
              column[temp][1]=MainFrame.Todo[i][1];
-             column[temp][2]=MainFrame.Todo[i][2]+"."+MainFrame.Todo[i][3]+"."+MainFrame.Todo[i][4]+"   "+MainFrame.Todo[i][5]+":"+MainFrame.Todo[i][6];
+             column[temp][2]=MainFrame.Todo[i][2]+"/"+MainFrame.Todo[i][3]+"/"+MainFrame.Todo[i][4]+"   "+MainFrame.Todo[i][5]+":"+MainFrame.Todo[i][6];
              column[temp][3]=MainFrame.Todo[i][7];
              temp++;
 
