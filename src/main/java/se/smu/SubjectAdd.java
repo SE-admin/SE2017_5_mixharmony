@@ -12,9 +12,9 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 
-//import TodoList.MainFrame;
-//import TodoList.Error_Exception;
-//import TodoList.Home.Subject_Contents;
+//import se.smu.MainFrame;
+//import se.smu.ErrorException;
+//import se.smu.Home.SubjectContents;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.FileWriter;

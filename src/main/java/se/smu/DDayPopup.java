@@ -29,7 +29,7 @@ public class DDayPopup extends JDialog {
 		
 		JLabel message = new JLabel("");
 		message.setBackground(Color.WHITE);
-		message.setBounds(40,30,190,80);
+		message.setBounds(40,30,195,80);
 		message.setIcon(new ImageIcon(DDayPopup.class.getResource("/icon/alarm.PNG")));
 		contentPanel.add(message);
 		
